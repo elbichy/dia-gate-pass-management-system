@@ -1,0 +1,57 @@
+@extends('layout.app')
+
+@section('content')
+  <main>
+
+    <img class="responsive-img" src="{{asset('storage/site/logo100.png')}}" />
+
+      <div class="box">
+        <div class="z-depth-1 grey lighten-4 formWrap">
+          
+          <form class="col s12" method="POST" action="{{ route('adminLogin') }}">
+            @csrf
+            <h6 class="blue darken-2 white-text">Gate Admin Login</h6>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <i class="material-icons prefix">account_circle</i>
+                <input class='validate' type='email' name='email' id='email' />
+                @if ($errors->has('email'))
+                    <span class="helper-text red-text">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+                <label for='email'>Enter your email</label>
+              </div>
+              <div class='input-field col s12'>
+                <i class="material-icons prefix">lock</i>
+                <input class='validate' type='password' name='password' id='password' />
+                @if ($errors->has('password'))
+                    <span class="helper-text red-text">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+                <label for='password'>Enter your password</label>
+              </div>
+            </div>
+            <div class="row">
+              <label style='float: right;'>
+                <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
+              </label>
+              <p>
+                <label>
+                  <input type="checkbox" checked="checked" />
+                  <span>Remember Me?</span>
+                </label>
+              </p>
+            </div>
+            <div class='row'>
+              <button type='submit' name='btn_login' class='col s12 btn waves-effect waves-light green darken-2'>Login</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+      <a href="{{route('login')}}" class="btn blue waves-effect waves-light darken-2">Login as Personnel</a>
+  </main>
+@endsection

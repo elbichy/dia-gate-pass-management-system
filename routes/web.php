@@ -11,4 +11,9 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'HomeController@index');
+Route::get('/adminLogin', 'HomeController@adminLogin')->name('adminLogin');
+
+Route::get('/dashboard', 'PersonnelDashboardController@index')->name('dashboard');
