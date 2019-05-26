@@ -16,6 +16,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 
 Route::get('/admin/dashboard', 'Auth\AdminDashboardController@index')->name('admin.dashboard');
+Route::put('/admin/approveGate', 'Auth\AdminDashboardController@approveGate')->name('approveGate');
+Route::put('/admin/declineGate', 'Auth\AdminDashboardController@declineGate')->name('declineGate');
 Route::get('/admin/login', 'Auth\AdminLoginController@showAdminLoginForm')->name('showAdminLoginForm');
 Route::post('/admin/login', 'Auth\AdminLoginController@adminLogin')->name('adminLogin');
 Route::post('/admin/logout', 'Auth\AdminLoginController@adminLogout')->name('adminLogout');

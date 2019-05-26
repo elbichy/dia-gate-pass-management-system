@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
+use App\Visitor;
+use Carbon\Carbon;
 class AdminDashboardController extends Controller
 {
     public function __construct()
@@ -12,7 +15,43 @@ class AdminDashboardController extends Controller
     }
 
     public function index(){
-        return view('auth.admin.dashboard');
+
+        $data = [
+            'allVisitors' => $visitors = User::where(['block' => auth()->user()->block])->with('visitors')->paginate(6)
+        ];
+
+        return view('auth.admin.dashboard')->with('data', $data);
+    }
+
+    public function approveGate(Request $request){
+        if($request->isMethod('put')){
+            $visitor = Visitor::find($request->requestid);
+            $visitor->status = 1;
+            $visitor->processedBy = auth()->user()->id;
+            $visitor->verifiedAtGate = Carbon::now();
+            if($visitor->save()){
+                return back()->with('success', 'Request approved!');
+            }
+        }
+        else{
+            return back();
+        }
+    }
+    
+    
+    public function declineGate(Request $request){
+        if($request->isMethod('put')){
+            $visitor = Visitor::find($request->requestid);
+            $visitor->status = 3;
+            $visitor->processedBy = auth()->user()->id;
+            $visitor->verifiedAtGate = Carbon::now();
+            if($visitor->save()){
+                return back()->with('success', 'Request Cancelled!');
+            }
+        }
+        else{
+            return back();
+        }
     }
 
 }

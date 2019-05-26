@@ -28,6 +28,8 @@ class CreateAdminsTable extends Migration
             $table->integer('position')->nullable();
             $table->string('designation')->nullable();
             $table->integer('role')->default(0);
+            $table->string('block')->nullable();
+            $table->string('office')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

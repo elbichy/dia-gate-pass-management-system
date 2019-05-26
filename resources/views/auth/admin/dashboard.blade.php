@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer">
+{{-- <div id="modal1" class="modal modal-fixed-footer">
   <div class="modal-content">
     <h4>Gate pass request</h4>
     <div class="row">
@@ -78,7 +78,7 @@
     </li>
     <a href="#!" class="modal-close waves-effect btn-flat waves-green right">Close</a>
   </div>
-</div>
+</div> --}}
 
 <div class="dashboardWrap row">
     <div class="admins">
@@ -88,11 +88,10 @@
                     <tr>
                         <h5 style="text-align:center; color:white;">Expected Guests Today</h5>
                     </tr>
-                    <tr>
-                        <th>Fullname</th>
+                    <tr class="blue-text" style="border-bottom:4px solid #2196f3">
+                        <th>Staff</th>
                         <th>Building</th>
-                        <th>Office</th>
-                        <th>Full Name</th>
+                        <th>Guest</th>
                         <th>Gender</th>
                         <th>Phone</th>
                         <th></th>
@@ -100,61 +99,32 @@
                 </thead>
         
                 <tbody>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td><a href="#modal1" class="white-text btn green waves-effect waves-light btn modal-trigger">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td><a href="#modal1" class="white-text btn green waves-effect waves-light btn modal-trigger">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td><a href="#modal1" class="white-text btn green waves-effect waves-light btn modal-trigger">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td><a href="#modal1" class="white-text btn green waves-effect waves-light btn modal-trigger">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td><a href="#modal1" class="white-text btn green waves-effect waves-light btn modal-trigger">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td>$0.87</td>
-                        <td><a href="#modal1" class="white-text btn green waves-effect waves-light btn modal-trigger">View</a></td>
-                    </tr>
-                    
+                @foreach($data['allVisitors'] as $visitors)
+                    @foreach($visitors->visitors as $visitor)
+                        @if($visitor->status == 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
+                        <tr>
+                            <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
+                            <td>{{$visitors->block}}</td>
+                            <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
+                            <td>{{$visitor->gender}}</td>
+                            <td>{{$visitor->phone}}</td>
+                            <td><a href="#" data-requestid="{{$visitor->id}}" class="approveRequest green-text"><i class="material-icons">thumb_up</i></a></td>
+                            <form action="{{url('admin/approveGate')}}" method="post" name="approveRequestForm" id="approveRequestForm">
+                                @method('put')
+                                @csrf
+                                <input type="hidden" name="requestid" id="requestid">
+                            </form>
+                            <td><a href="#" data-requestid="{{$visitor->id}}" class="declineRequest red-text"><i class="material-icons">thumb_down</i></a></td>
+                            <form action="{{url('admin/declineGate')}}" method="post" name="declineRequestForm" id="declineRequestForm">
+                                @method('put')
+                                @csrf
+                                <input type="hidden" name="requestid" id="requestid">
+                            </form>
+                            {{-- <td><a href="#modal1" class="white-text btn green waves-effect waves-light btn modal-trigger">View</a></td> --}}
+                        </tr>
+                        @endif
+                    @endforeach
+                @endforeach
                 </tbody>
             </table>
         </div>
@@ -164,34 +134,34 @@
                         <tr>
                             <h5 style="text-align:center; color:white;">Screened Today</h5>
                         </tr>
-                        <tr>
-                            <th>Fullname</th>
-                            <th>Fullname</th>
+                        <tr class="blue-text" style="border-bottom:4px solid #2196f3">
+                            <th>Personnel</th>
+                            <th>Guest</th>
                             <th>Status</th>
                             <th></th>
                         </tr>
                     </thead>
-            
                     <tbody>
+                @foreach($data['allVisitors'] as $visitors)
+                    @foreach($visitors->visitors as $visitor)
+                        @if($visitor->status == 1 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
                         <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td><i class="material-icons">done</i></td>
+                            <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
+                            <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
+                            <td>
+                                @if($visitor->status == 1)
+                                    <i class="material-icons green-text">done</i>
+                                @elseif($visitor->status == 2)
+                                    <i class="material-icons green-text">done_all</i>
+                                @elseif($visitor->status == 3)
+                                    <i class="material-icons red-text">close</i>
+                                @endif
+                            </td>
                             <td><a class="white-text btn green">View</a></td>
                         </tr>
-                        <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td><i class="material-icons">done_all</i></td>
-                            <td><a class="white-text btn green">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td><i class="material-icons">close</i></td>
-                            <td><a class="white-text btn green">View</a></td>
-                        </tr>
-                        
+                        @endif
+                    @endforeach
+                @endforeach
                     </tbody>
                 </table>
         </div>

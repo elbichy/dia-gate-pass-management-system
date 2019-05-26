@@ -27,6 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('rank')->nullable();
             $table->integer('position')->nullable();
             $table->string('designation')->nullable();
+            $table->string('block')->nullable();
+            $table->string('office')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
