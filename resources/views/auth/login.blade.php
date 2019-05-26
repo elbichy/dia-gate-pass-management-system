@@ -10,7 +10,7 @@
           
           <form class="col s12" method="POST" action="{{ route('login') }}">
             @csrf
-            <h6 class="blue darken-2 white-text">Personnel Login</h6>
+            <h6 class="blue darken-2 white-text">General staff login</h6>
 
             <div class='row'>
               <div class='input-field col s12'>
@@ -40,7 +40,7 @@
               </label>
               <p>
                 <label>
-                  <input type="checkbox" checked="checked" />
+                  <input type="checkbox" name="remember" />
                   <span>Remember Me?</span>
                 </label>
               </p>
@@ -52,6 +52,6 @@
 
         </div>
       </div>
-      <a href="{{route('adminLogin')}}" class="btn blue waves-effect waves-light darken-2">Login as gate admin</a>
+      <a href="{{route('showAdminLoginForm')}}" class="btn blue waves-effect waves-light darken-2">Login as gate/reception admin</a>
   </main>
 @endsection

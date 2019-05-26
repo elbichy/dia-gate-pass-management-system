@@ -14,6 +14,12 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
-Route::get('/adminLogin', 'HomeController@adminLogin')->name('adminLogin');
 
-Route::get('/dashboard', 'PersonnelDashboardController@index')->name('dashboard');
+Route::get('/admin/dashboard', 'Auth\AdminDashboardController@index')->name('admin.dashboard');
+Route::get('/admin/login', 'Auth\AdminLoginController@showAdminLoginForm')->name('showAdminLoginForm');
+Route::post('/admin/login', 'Auth\AdminLoginController@adminLogin')->name('adminLogin');
+Route::post('/admin/logout', 'Auth\AdminLoginController@adminLogout')->name('adminLogout');
+
+Route::get('/personnel', 'Auth\PersonnelDashboardController@index')->name('personnel');
+Route::post('/personnel/submitRequest', 'Auth\PersonnelDashboardController@submitRequest')->name('submitRequest');
+Route::delete('/personnel/deleteRequest/{id}', 'Auth\PersonnelDashboardController@deleteRequest')->name('deleteRequest');

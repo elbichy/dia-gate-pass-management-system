@@ -25,12 +25,4 @@ class HomeController extends Controller
     {
         return view('pages.home');
     }
-
-    public function login(){
-        return view('auth.login');
-    }
-    
-    public function adminLogin(){
-        return view('auth.adminLogin');
-    }
 }

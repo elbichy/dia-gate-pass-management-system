@@ -4,10 +4,45 @@ body {
     flex-direction: column;
     background: #fff;
     background-image: url('/storage/site/bgLarge.jpg');
-    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position-y: 60%;
+
+    .modal{
+        .modal-content{
+            margin-top: 40px;
+            &:last-child{
+                margin: 0;
+            }
+            fieldset{
+                border:2px solid #ccc;
+                padding: 0.35em 0.75em 0em!important;
+                legend{
+                    padding:0 10px;
+                    text-align: center;
+                    h6{
+                        margin: 0;
+                    }
+                }
+                .input-field{
+                    margin:0.5rem 0!important;
+                    .label{
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        .modal-footer{
+            padding:0 24px;
+            li{
+                list-style: none;
+            }
+        }
+    }
+
     main {
+        // border:2px solid green;
         flex: 1;
-        // border:2px solid red;
         display:flex;
         justify-content: center;
         align-items: center;
@@ -56,13 +91,138 @@ body {
                 flex-direction: column;
             }
         }
+
+        
+    }
+
+    .dashboardWrap{
+        flex: 1;
+        width:100%;
+        display:flex;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 10px 0;
+        // border:2px solid red;
+        margin:0!important;
+
+        // ADMINS STYLING
+        .admins{
+            width: 100%;
+            flex: 1;
+            .pageTitle{
+                
+            }
+            
+            .expected{
+                padding:10px;
+                table{
+                    background: #fff;
+                    max-height: 450px;
+                    tbody{
+                        tr{
+                            td{
+                                &:last-child{
+                                    // border: 2px solid red;
+                                    padding: 0;
+                                    width: 80px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .authenticated{
+                padding:10px;
+                table{
+                    max-height: 450px;
+                    background: #fff;
+                    tbody{
+                        tr{
+                            td{
+                                &:last-child{
+                                    // border: 2px solid red;
+                                    padding: 0;
+                                    width: 80px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // PERSONNEL STYLING
+        .personnel{
+            width: 100%;
+            flex: 1;
+            position: relative;
+            .btn-floating{
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .expected{
+                padding:10px;
+                table{
+                    background: #fff;
+                    max-height: 450px;
+                    tbody{
+                        tr{
+                            td{
+                                &:last-child{
+                                    // border: 2px solid red;
+                                    padding: 0;
+                                    width: 80px;
+                                }
+                            }
+                        }
+                    }
+                }
+                ul{
+                    background: #fff;
+                    margin: 0;
+                    padding: 10px;
+                    border-top:2px solid #eee;
+                }
+            }
+
+            .authenticated{
+                padding:10px;
+                table{
+                    max-height: 450px;
+                    background: #fff;
+                    tbody{
+                        tr{
+                            td{
+                                &:last-child{
+                                    // border: 2px solid red;
+                                    padding: 0;
+                                    width: 80px;
+                                }
+                            }
+                        }
+                    }
+                }
+                ul{
+                    background: #fff;
+                    margin: 0;
+                    padding: 10px;
+                    border-top:2px solid #eee;
+                }
+            }
+        }
     }
 }
 
 @media only screen and (max-width: 600px) {
 
     body {
-        
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-y: 80%;
+        background-position-x: 20%;
+        background-attachment: fixed;
         main {
             .homeHeader{
                 font-size: 20px;
@@ -107,6 +267,120 @@ body {
                     align-items: center;
                     flex-direction: column;
                     margin-bottom: 12px;
+                }
+            }
+        }
+
+        .dashboardWrap{
+            flex: 1;
+            width:100%;
+            display:block!important;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 0;
+            // border:2px solid red;
+            margin:0!important;
+
+            .admins{
+                .pageTitle{
+                    
+                }
+                
+                .expected{
+                    padding:10px;
+                    table{
+                        background: #fff;
+                        max-height: 1000px!important;
+                        height: 100%!important;
+                        tbody{
+                            tr{
+                                td{
+                                    &:last-child{
+                                        // border: 2px solid red;
+                                        padding: 0;
+                                        width: 80px;
+                                        padding: 20px 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+        
+                .authenticated{
+                    padding:10px;
+                    table{
+                        max-height: 1000px!important;
+                        background: #fff;
+                        height: 100%!important;
+                        tbody{
+                            tr{
+                                td{
+                                    &:last-child{
+                                        // border: 2px solid red;
+                                        padding: 20px 0;
+                                        width: 80px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            .personnel{
+                
+                .expected{
+                    padding:10px;
+                    table{
+                        background: #fff;
+                        max-height: 1000px!important;
+                        height: 100%!important;
+                        tbody{
+                            tr{
+                                td{
+                                    &:last-child{
+                                        // border: 2px solid red;
+                                        padding: 0;
+                                        width: 80px;
+                                        padding: 20px 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ul{
+                        background: #fff;
+                        margin: 0;
+                        padding: 10px;
+                        border-top:2px solid #eee;
+                    }
+                }
+        
+                .authenticated{
+                    padding:10px;
+                    table{
+                        max-height: 1000px!important;
+                        background: #fff;
+                        height: 100%!important;
+                        tbody{
+                            tr{
+                                td{
+                                    &:last-child{
+                                        // border: 2px solid red;
+                                        padding: 20px 0;
+                                        width: 80px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ul{
+                        background: #fff;
+                        margin: 0;
+                        padding: 10px;
+                        border-top:2px solid #eee;
+                    }
                 }
             }
         }
