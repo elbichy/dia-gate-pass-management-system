@@ -108,17 +108,17 @@
                             <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
                             <td>{{$visitor->gender}}</td>
                             <td>{{$visitor->phone}}</td>
-                            <td><a href="#" data-requestid="{{$visitor->id}}" class="approveRequest green-text"><i class="material-icons">thumb_up</i></a></td>
+                            <td><a href="#" data-requestid="{{$visitor->id}}" class="approveRequest btn btn-small waves-effect waves-light green">Approve</a></td>
                             <form action="{{url('admin/approveGate')}}" method="post" name="approveRequestForm" id="approveRequestForm">
                                 @method('put')
                                 @csrf
-                                <input type="hidden" name="requestid" id="requestid">
+                                <input type="hidden" name="approverequestid" id="approverequestid">
                             </form>
-                            <td><a href="#" data-requestid="{{$visitor->id}}" class="declineRequest red-text"><i class="material-icons">thumb_down</i></a></td>
+                            <td><a href="#" data-requestid="{{$visitor->id}}" class="declineRequestbtn btn-small waves-effect waves-light  red">Decline</a></td>
                             <form action="{{url('admin/declineGate')}}" method="post" name="declineRequestForm" id="declineRequestForm">
                                 @method('put')
                                 @csrf
-                                <input type="hidden" name="requestid" id="requestid">
+                                <input type="hidden" name="declinerequestid" id="declinerequestid">
                             </form>
                             {{-- <td><a href="#modal1" class="white-text btn green waves-effect waves-light btn modal-trigger">View</a></td> --}}
                         </tr>
@@ -138,26 +138,24 @@
                             <th>Personnel</th>
                             <th>Guest</th>
                             <th>Status</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                 @foreach($data['allVisitors'] as $visitors)
                     @foreach($visitors->visitors as $visitor)
-                        @if($visitor->status == 1 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
+                        @if($visitor->status > 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
                         <tr>
                             <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
                             <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
                             <td>
                                 @if($visitor->status == 1)
-                                    <i class="material-icons green-text">done</i>
+                                    Cleared Gate
                                 @elseif($visitor->status == 2)
-                                    <i class="material-icons green-text">done_all</i>
+                                    Cleared Reception
                                 @elseif($visitor->status == 3)
-                                    <i class="material-icons red-text">close</i>
+                                    Declined
                                 @endif
                             </td>
-                            <td><a class="white-text btn green">View</a></td>
                         </tr>
                         @endif
                     @endforeach

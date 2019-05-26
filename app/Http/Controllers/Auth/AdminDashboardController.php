@@ -25,7 +25,7 @@ class AdminDashboardController extends Controller
 
     public function approveGate(Request $request){
         if($request->isMethod('put')){
-            $visitor = Visitor::find($request->requestid);
+            $visitor = Visitor::find($request->approverequestid);
             $visitor->status = 1;
             $visitor->processedBy = auth()->user()->id;
             $visitor->verifiedAtGate = Carbon::now();
@@ -41,7 +41,7 @@ class AdminDashboardController extends Controller
     
     public function declineGate(Request $request){
         if($request->isMethod('put')){
-            $visitor = Visitor::find($request->requestid);
+            $visitor = Visitor::find($request->declinerequestid);
             $visitor->status = 3;
             $visitor->processedBy = auth()->user()->id;
             $visitor->verifiedAtGate = Carbon::now();

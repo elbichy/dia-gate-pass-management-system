@@ -49,9 +49,9 @@ class PersonnelDashboardController extends Controller
         }
     }
 
-    public function deleteRequest($id){
+    public function deleteRequest(Request $request){
         $item = User::find(auth()->user()->id);
-        if($item->visitors()->where('id', $id)->delete()){
+        if($item->visitors()->where('id', $request->deleterequestid)->delete()){
             return back()->with('success', 'Request deleted successfully!');
         }
     }

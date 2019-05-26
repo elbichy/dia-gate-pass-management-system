@@ -21,7 +21,7 @@
                         <strong>{{ $errors->first('email') }}</strong>
                     </span>
                 @endif
-                <label for='email'>Enter your email</label>
+                <label for='email'>Enter username</label>
               </div>
               <div class='input-field col s12'>
                 <i class="material-icons prefix">lock</i>
@@ -31,7 +31,7 @@
                         <strong>{{ $errors->first('password') }}</strong>
                     </span>
                 @endif
-                <label for='password'>Enter your password</label>
+                <label for='password'>Enter password</label>
               </div>
             </div>
             <div class="row">

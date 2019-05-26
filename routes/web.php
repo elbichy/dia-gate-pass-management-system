@@ -24,4 +24,4 @@ Route::post('/admin/logout', 'Auth\AdminLoginController@adminLogout')->name('adm
 
 Route::get('/personnel', 'Auth\PersonnelDashboardController@index')->name('personnel');
 Route::post('/personnel/submitRequest', 'Auth\PersonnelDashboardController@submitRequest')->name('submitRequest');
-Route::delete('/personnel/deleteRequest/{id}', 'Auth\PersonnelDashboardController@deleteRequest')->name('deleteRequest');
+Route::delete('/personnel/deleteRequest', 'Auth\PersonnelDashboardController@deleteRequest')->name('deleteRequest');

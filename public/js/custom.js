@@ -27,6 +27,7 @@ $(document).ready(function () {
     // DELETE MY REQUEST
     $('.deleteRequest').click(e => {
         let requestid = e.currentTarget.dataset.requestid;
+        $('#deleterequestid').val(requestid);
         let confirmIt = confirm('Are you sure you want to cancel this request?');
         confirmIt ? $('#deleteRequestForm').submit() : '';
     });
@@ -34,15 +35,15 @@ $(document).ready(function () {
     // APPROVE REQUEST AT GATE
     $('.approveRequest').click(e => {
         let requestid = e.currentTarget.dataset.requestid;
-        $('#requestid').val(requestid);
+        $('#approverequestid').val(requestid);
         let confirmIt = confirm('Are you sure you want to approve this request?');
         confirmIt ? $('#approveRequestForm').submit() : '';
     });
     
     // DECLINE REQUEST AT GATE
-    $('.declineRequest').click(e => {
+    $('.declineRequestbtn').click(e => {
         let requestid = e.currentTarget.dataset.requestid;
-        $('#requestid').val(requestid);
+        $('#declinerequestid').val(requestid);
         let confirmIt = confirm('Are you sure you want to decline this request?');
         confirmIt ? $('#declineRequestForm').submit() : '';
     });

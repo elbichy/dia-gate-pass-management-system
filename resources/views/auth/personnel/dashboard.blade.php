@@ -103,29 +103,30 @@
                         <th>Phone</th>
                         <th>Status</th>
                         <th></th>
-                        <th></th>
                     </tr>
                 </thead>
         
                 <tbody>
                 @if(count($data['todaysVisitors']) > 0)
                     @foreach($data['todaysVisitors'] as $visitor)
+                        @if($visitor->status == 0)
                             <tr>
                                 <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
                                 <td>{{$visitor->gender}}</td>
                                 <td>{{$visitor->phone}}</td>
                                 <td>
-                                    {!! $visitor->status == 0 ? '<i class="material-icons orange-text">loop</i>' : '' !!}
-                                    {!! $visitor->status == 1 ? '<i class="material-icons green-text">done</i>' : '' !!}
-                                    {!! $visitor->status == 2 ? '<i class="material-icons green-text">done_all</i>' : '' !!}
+                                    {!! $visitor->status == 0 ? 'Pending' : '' !!}
+                                    {!! $visitor->status == 1 ? 'Cleared Gate' : '' !!}
+                                    {!! $visitor->status == 2 ? 'Cleared Reception' : '' !!}
                                 </td>
-                                <td><a href="#" data-requestid="{{$visitor->id}}" class="deleteRequest"><i class="material-icons red-text">close</i></a></td>
-                                <form action="{{url('dashboard/deleteRequest').'/'.$visitor->id}}" method="post" name="deleteRequestForm" id="deleteRequestForm">
+                                <td><a href="#" data-requestid="{{$visitor->id}}" class="deleteRequest btn btn-small waves-effect waves-light red">Delete</a></td>
+                                <form action="{{url('personnel/deleteRequest')}}" method="post" name="deleteRequestForm" id="deleteRequestForm">
                                     @method('delete')
+                                    <input type="hidden" name="deleterequestid" id="deleterequestid">
                                     @csrf
                                 </form>
-                                <td><i class="material-icons">comment</i></td>
                             </tr>
+                        @endif
                     @endforeach
                 @else
                     <tr>
@@ -154,17 +155,20 @@
                 <tbody>
                 @if(count($data['allVisitors']) > 0)
                     @foreach($data['allVisitors'] as $visitor)
+                        @if($visitor->status > 0)
                         <tr>
                             <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
                             <td>{{$visitor->gender}}</td>
                             <td>{{$visitor->created_at->format('d/m/Y')}}</td>
                             <td>
-                                {!! $visitor->status == 0 ? '<i class="material-icons orange-text">loop</i>' : '' !!}
-                                {!! $visitor->status == 1 ? '<i class="material-icons green-text">done</i>' : '' !!}
-                                {!! $visitor->status == 2 ? '<i class="material-icons green-text">done_all</i>' : '' !!}
+                                {!! $visitor->status == 0 ? 'Pending' : '' !!}
+                                {!! $visitor->status == 1 ? 'Cleared Gate' : '' !!}
+                                {!! $visitor->status == 2 ? 'Cleared Reception' : '' !!}
+                                {!! $visitor->status == 3 ? 'Declined' : '' !!}
                             </td>
                             <td><a class="white-text btn green">View</a></td>
                         </tr>
+                        @endif
                     @endforeach
                 @else
                     <tr>
