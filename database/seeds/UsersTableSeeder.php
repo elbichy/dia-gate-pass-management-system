@@ -11,12 +11,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class)->create([
-            'firstname' => 'Ibrahim',
-            'lastname' => 'Abdullahi',
-            'block' => 'nhq',
-            'email' => 'above@gmail.com',
-            'password' => Hash::make('letgothere'),
-        ]);
+        $count = 20;
+        factory(User::class, $count)->create();
     }
 }

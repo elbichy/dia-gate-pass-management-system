@@ -21,7 +21,7 @@
 <body>
     <div class="navbar-fixed">
         <ul id="dropdown1" class="dropdown-content">
-            <li><a href="{{route('manageGateReceptionStaff')}}" class="blue-text">Gate/Reception</a></li>
+            <li><a href="{{route('manageGateReceptionStaff')}}" class="blue-text">Admin Staff</a></li>
             <li><a href="{{route('manageGeneralStaff')}}" class="blue-text">General Staff</a></li>
         </ul>
         <nav>

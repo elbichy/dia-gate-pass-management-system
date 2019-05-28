@@ -111,7 +111,7 @@ body {
             //  border:2px solid red;
             .formWrap{
                 // border:2px solid green;
-                height: 100%;
+                height: auto;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
@@ -132,7 +132,7 @@ body {
             }
             .listWrap{
                 // border:2px solid blue;
-                height: 100%;
+                height: auto;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
@@ -140,7 +140,7 @@ body {
                 .tableWrap{
                     width:100%;
                     h6{
-                        margin:0 0 20px 0;
+                        margin:0 0 0px 0;
                         text-align: center;
                         padding-bottom:20px;
                         border-bottom: 2px solid #eee;
@@ -149,6 +149,18 @@ body {
                     padding: 20px;
                     table{
                         width: 100%;
+                        tbody{
+                            tr{
+                                td{
+                                    padding: 8px 5px;
+                                }
+                            }
+                        }
+                    }
+                    .page{
+                        .pagination{
+                            margin:10px 0 auto!important;
+                        }
                     }
                 }
             }

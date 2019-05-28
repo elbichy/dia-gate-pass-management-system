@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User;
-
+use App\Admin;
+use Illuminate\Support\Facades\DB;
 class AdminsTableSeeder extends Seeder
 {
     /**
@@ -12,13 +12,6 @@ class AdminsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Admin::class)->create([
-            'firstname' => 'Suleiman',
-            'lastname' => 'Abdulrazaq',
-            'role' => 'male',
-            'block' => 'nhq',
-            'email' => 'sman@gmail.com',
-            'password' => Hash::make('@Suleimanu1')
-        ]);
+        factory(Admin::class)->create();
     }
 }

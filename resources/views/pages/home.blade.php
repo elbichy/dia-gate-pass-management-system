@@ -9,11 +9,11 @@
     <div class="homMenuContainer">
       <a href="{{route('adminLogin')}}" class="item z-depth-1">
         <i class="large material-icons">security</i>
-        <p>Gate/Reception Staff</p>
+        <p>Admin Staff Login</p>
       </a>
       <a href="{{route('login')}}" class="item z-depth-1">
         <i class="large material-icons">person_pin</i>
-        <p>General Staff</p>
+        <p>General Staff Login</p>
       </a>
     </div>
   </main>

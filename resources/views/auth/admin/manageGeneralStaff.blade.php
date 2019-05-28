@@ -120,6 +120,9 @@
                         @endif
                         </tbody>
                     </table>
+                    <div class="page col s12" style="padding:0 0 0 0;">
+                        {{$data['allStaffs']->links('vendor.pagination.materializecss')}}
+                    </div>
                 </div>
             </div>
         </div>
