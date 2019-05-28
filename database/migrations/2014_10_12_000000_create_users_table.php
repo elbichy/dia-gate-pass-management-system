@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->integer('gl')->nullable();
             $table->integer('step')->nullable();
             $table->string('rank')->nullable();
-            $table->integer('position')->nullable();
+            $table->string('position')->nullable();
             $table->string('designation')->nullable();
             $table->string('block')->nullable();
             $table->string('office')->nullable();

@@ -28,6 +28,8 @@ class Admin extends Authenticatable
         'position',
         'designation',
         'role',
+        'block',
+        'office',
     ];
 
     /**
@@ -50,5 +52,9 @@ class Admin extends Authenticatable
 
     public function visitors(){
         return $this->hasMany('App\Visitor');
+    }
+
+    public function getBlockAttribute($value){
+        return strtoupper($value);
     }
 }

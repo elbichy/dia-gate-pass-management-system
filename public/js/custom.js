@@ -7,6 +7,7 @@ $(document).ready(function () {
     $('.modal').modal({
         dismissible: true
     });
+    $(".dropdown-trigger").dropdown();
     $('.materialboxed').materialbox();
     $('select').formSelect();
     $('#selectBranch').formSelect();
@@ -46,6 +47,22 @@ $(document).ready(function () {
         $('#declinerequestid').val(requestid);
         let confirmIt = confirm('Are you sure you want to decline this request?');
         confirmIt ? $('#declineRequestForm').submit() : '';
+    });
+    
+    // APPROVE REQUEST AT RECEPTION
+    $('.approveRequestReception').click(e => {
+        let requestid = e.currentTarget.dataset.requestid;
+        $('#approverequestid').val(requestid);
+        let confirmIt = confirm('Are you sure you want to approve this request?');
+        confirmIt ? $('#approveRequestReceptionForm').submit() : '';
+    });
+    
+    // DECLINE REQUEST AT RECEPTION
+    $('.declineRequestReceptionbtn').click(e => {
+        let requestid = e.currentTarget.dataset.requestid;
+        $('#declinerequestid').val(requestid);
+        let confirmIt = confirm('Are you sure you want to decline this request?');
+        confirmIt ? $('#declineRequestReceptionForm').submit() : '';
     });
 });
 // GET COORDINATES

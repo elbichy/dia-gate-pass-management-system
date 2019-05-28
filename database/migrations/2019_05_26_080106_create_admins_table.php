@@ -25,7 +25,7 @@ class CreateAdminsTable extends Migration
             $table->integer('gl')->nullable();
             $table->integer('step')->nullable();
             $table->string('rank')->nullable();
-            $table->integer('position')->nullable();
+            $table->string('position')->nullable();
             $table->string('designation')->nullable();
             $table->integer('role')->default(0);
             $table->string('block')->nullable();

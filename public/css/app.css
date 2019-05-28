@@ -114,6 +114,55 @@ body .dashboardWrap .admins {
   flex: 1;
 }
 
+body .dashboardWrap .admins .formWrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+body .dashboardWrap .admins .formWrap form {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+}
+
+body .dashboardWrap .admins .formWrap form h6 {
+  margin: 0 0 20px 0;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eee;
+}
+
+body .dashboardWrap .admins .formWrap form .row {
+  margin: 10px 0 0;
+}
+
+body .dashboardWrap .admins .listWrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+body .dashboardWrap .admins .listWrap .tableWrap {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+}
+
+body .dashboardWrap .admins .listWrap .tableWrap h6 {
+  margin: 0 0 20px 0;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eee;
+}
+
+body .dashboardWrap .admins .listWrap .tableWrap table {
+  width: 100%;
+}
+
 body .dashboardWrap .admins .expected {
   padding: 10px;
 }
