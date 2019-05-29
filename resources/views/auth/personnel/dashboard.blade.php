@@ -34,6 +34,7 @@
                         </div>
                     </div>
                     <div class="col s12 m4 l4 input-field">
+                        <label>Gender</label>
                         <select class="browser-default" name="gender" id="gender">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="male">Male</option>
@@ -45,7 +46,6 @@
                                 <strong>{{ $errors->first('gender') }}</strong>
                             </span>
                         @endif
-                        <label>Gender</label>
                     </div>
                 </div>
 
