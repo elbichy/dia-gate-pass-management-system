@@ -253,6 +253,10 @@ body .dashboardWrap .personnel .authenticated ul {
   border-top: 2px solid #eee;
 }
 
+body .sidenav-overlay {
+  z-index: 990 !important;
+}
+
 @media only screen and (max-width: 600px) {
   body {
     background-repeat: no-repeat;
