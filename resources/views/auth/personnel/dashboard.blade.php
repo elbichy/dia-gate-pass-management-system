@@ -140,7 +140,7 @@
             {{$data['todaysVisitors']->links('vendor.pagination.materializecss')}}
         </div>
         <div class="authenticated col s12 m6 l6">
-            <table class="striped highlight centered responsive-table z-depth-2">
+            <table class="striped highlight centered z-depth-2">
                 <thead>
                     <tr>
                         <h6 style="text-align:center; color:white;">My Requests History</h6>
