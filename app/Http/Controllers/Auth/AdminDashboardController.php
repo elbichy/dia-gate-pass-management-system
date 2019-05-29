@@ -134,6 +134,7 @@ class AdminDashboardController extends Controller
         $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
+            'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required',
             'block' => 'required'
@@ -142,6 +143,7 @@ class AdminDashboardController extends Controller
         $staff = User::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
+            'username' => $request->username,
             'email' => $request->email,
             'gender' => $request->gender,
             'password' => Hash::make($request->password),

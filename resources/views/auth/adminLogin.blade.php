@@ -15,7 +15,7 @@
             <div class='row'>
               <div class='input-field col s12'>
                 <i class="material-icons prefix">account_circle</i>
-                <input class='validate' type='email' name='email' id='email' />
+                <input class='validate' type='text' name='email' id='email' />
                 @if ($errors->has('email'))
                     <span class="helper-text red-text">
                         <strong>{{ $errors->first('email') }}</strong>

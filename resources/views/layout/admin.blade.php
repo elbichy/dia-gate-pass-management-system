@@ -24,6 +24,10 @@
             <li><a href="{{route('manageGateReceptionStaff')}}" class="blue-text">Admin Staff</a></li>
             <li><a href="{{route('manageGeneralStaff')}}" class="blue-text">General Staff</a></li>
         </ul>
+        <ul id="dropdown2" class="dropdown-content">
+            <li><a href="{{route('manageGateReceptionStaff')}}" class="blue-text">Admin Staff</a></li>
+            <li><a href="{{route('manageGeneralStaff')}}" class="blue-text">General Staff</a></li>
+        </ul>
         <nav>
             <div class="nav-wrapper blue darken-2">
                 <a href="#!" class="hide-on-med-and-down" style="margin-left: 20px;">Defence Intelligence Agency Gate Pass system</a>
@@ -48,7 +52,7 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="dashboard/myprofile">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
             @if(auth()->user()->role == 1)
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Manage Staffs<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger hide-on-med-and-up" href="#!" data-target="dropdown2">Manage Staffs<i class="material-icons right">arrow_drop_down</i></a></li>
             @endif
             <li>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

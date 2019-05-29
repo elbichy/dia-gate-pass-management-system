@@ -43,27 +43,11 @@ $(document).ready(function () {
     // MATERIALIZE INITS
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
-    $('.tooltipped').tooltip();
     $('.modal').modal({
         dismissible: true
     });
-    $(".dropdown-trigger").dropdown();
-    $('.materialboxed').materialbox();
+    $('.dropdown-trigger').dropdown();
     $('select').formSelect();
-    $('#selectBranch').formSelect();
-    $('.nav-wrapper .dropdown-content li').click(function(e){
-        $('form.switchBranch').submit();
-    });
-    $('.addSaleSubmitBtn').click(function(e){
-        $('form.addSalesForm').submit();
-    });
-    $('.timepicker').timepicker({
-        defaultTime: '9:00',
-        showClearBtn: true
-    });
-    $('.tabs').tabs({
-        swipeable: false
-    });
 
     // DELETE MY REQUEST
     $('.deleteRequest').click(e => {

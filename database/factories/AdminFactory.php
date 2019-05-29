@@ -9,10 +9,10 @@ $factory->define(Admin::class, function (Faker $faker) {
     return [
         'firstname' => 'Suleiman',
         'lastname' => 'Abdulrazaq',
-        'gender' => 'male',
-        'block' => 'hq',
         'email' => 'sman@gmail.com',
         'password' => Hash::make('12345678'),
+        'gender' => 'male',
+        'block' => 'hq',
         'role' => 1,
     ];
 });

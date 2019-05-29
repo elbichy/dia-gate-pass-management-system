@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="col s12 m4 l4 input-field">
-                        <select name="gender" id="gender">
+                        <select class="browser-default" name="gender" id="gender">
                             <option value="" disabled selected>Choose your option</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>

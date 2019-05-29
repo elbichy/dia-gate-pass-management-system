@@ -17,42 +17,52 @@
                             <input type="text" name="lastname" id="lastname">
                             <label for="lastname">Lastname *</label>
                         </div>
-                        <div class="input-field col s12 m4 l4">
-                            <select name="gender" id="gender">
+                        <div class="col s12 m4 l4">
+                            <label for="gender">Gender *</label>
+                            <select class="browser-default" name="gender" id="gender">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option value="other">Other</option>
                             </select>
-                            <label for="gender">Gender *</label>
                         </div>
+                    </div>
 
+                    <div class="row">
                         <div class="input-field col s12 m4 l4">
-                            <input type="email" name="email" id="email">
-                            <label for="email">Email *</label>
+                            <input type="text" name="username" id="username">
+                            <label for="username">Username *</label>
                         </div>
                         <div class="input-field col s12 m4 l4">
                             <input type="password" name="password" id="password">
                             <label for="password">Password *</label>
                         </div>
                         <div class="input-field col s12 m4 l4">
+                            <input type="email" name="email" id="email">
+                            <label for="email">Email *</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m4 l4">
                             <input type="number" name="phone" id="phone">
                             <label for="phone">Phone</label>
                         </div>
-
-                        <div class="input-field col s12 m3 l3">
+                        <div class="input-field col s12 m4 l4">
                             <input type="number" name="gl" id="gl">
                             <label for="gl">Grade Level</label>
                         </div>
-                        <div class="input-field col s12 m3 l3">
+                        <div class="input-field col s12 m4 l4">
                             <input type="number" name="step" id="step">
                             <label for="step">Step</label>
                         </div>
-                        <div class="input-field col s12 m6 l6">
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m4 l4">
                             <input type="text" name="rank" id="rank">
                             <label for="rank">Rank</label>
                         </div>
-
                         <div class="input-field col s12 m4 l4">
                             <input type="text" name="position" id="position">
                             <label for="position">Position</label>
@@ -61,21 +71,23 @@
                             <input type="text" name="designation" id="designation">
                             <label for="designation">Designation</label>
                         </div>
-                        <div class="input-field col s12 m4 l4">
-                            <select name="block" id="block">
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m4 l4">
+                            <label for="block">Block *</label>
+                            <select class="browser-default" name="block" id="block">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="hq">HQ</option>
                                 <option value="oldhq">Old HQ</option>
                                 <option value="annex">Annex</option>
                             </select>
-                            <label for="block">Block *</label>
                         </div>
-
-                        <div class="input-field col s12 m6 l6">
+                        <div class="input-field col s12 m4 l4">
                             <input type="text" name="office" id="office">
                             <label for="office">Office</label>
                         </div>
-                        <div class="input-field col s12 m6 l6">
+                        <div class="input-field col s12 m4 l4">
                             <button class="btn waves-effect waves-light green darken-1 right" type="submit">Submit
                                 <i class="material-icons right">send</i>
                             </button>
