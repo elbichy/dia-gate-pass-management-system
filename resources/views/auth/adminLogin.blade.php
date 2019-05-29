@@ -10,7 +10,7 @@
           
           <form class="col s12" method="POST" action="{{ route('adminLogin') }}">
             @csrf
-            <h6 class="blue darken-2 white-text">Gate/Reception staff login</h6>
+            <h6 class="blue darken-2 white-text">Admin staff login</h6>
 
             <div class='row'>
               <div class='input-field col s12'>

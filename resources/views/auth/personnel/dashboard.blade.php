@@ -107,7 +107,7 @@
                     </tr>
                 </thead>
         
-                <tbody>
+                <tbody id="myRequests">
                 @if(count($data['todaysVisitors']) > 0)
                     @foreach($data['todaysVisitors'] as $visitor)
                         @if($visitor->status < 2)
@@ -154,10 +154,10 @@
                     </tr>
                 </thead>
         
-                <tbody>
+                <tbody id="myRequests">
                 @if(count($data['allVisitors']) > 0)
                     @foreach($data['allVisitors'] as $visitor)
-                        @if($visitor->status > 0)
+                        @if($visitor->status > 1)
                         <tr>
                             <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
                             <td>{{$visitor->gender}}</td>

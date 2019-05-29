@@ -29,13 +29,14 @@
                             <th>Gender</th>
                             <th>Phone</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
             
-                    <tbody>
+                    <tbody id="requestsApproval">
                     @foreach($data['allVisitors'] as $visitors)
                         @foreach($visitors->visitors as $visitor)
-                            @if($visitor->status == 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
+                            @if($visitor != NULL && $visitor->status == 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
                             <tr>
                                 <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
                                 <td>{{$visitors->block}}</td>
@@ -74,7 +75,7 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="requestsApprovalHistory">
                     @foreach($data['allVisitors'] as $visitors)
                         @foreach($visitors->visitors as $visitor)
                             @if($visitor->status > 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
@@ -120,13 +121,14 @@
                             <th>Gender</th>
                             <th>Phone</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
             
-                    <tbody>
+                    <tbody id="requestsApproval">
                     @foreach($data['allReceptionVisitors'] as $visitors)
                         @foreach($visitors->visitors as $visitor)
-                            @if($visitor->status == 1 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
+                            @if($visitor != NULL && $visitor->status == 1 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
                             <tr>
                                 <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
                                 <td>{{$visitors->block}}</td>
@@ -165,7 +167,7 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="requestsApprovalHistory">
                     @foreach($data['allReceptionVisitors'] as $visitors)
                         @foreach($visitors->visitors as $visitor)
                             @if($visitor->status > 1 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))

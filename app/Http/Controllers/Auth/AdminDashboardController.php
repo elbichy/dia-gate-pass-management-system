@@ -19,10 +19,10 @@ class AdminDashboardController extends Controller
     public function index(){
 
         $data = [
-            'allVisitors' => $visitors = User::with('visitors')->paginate(7),
+            'allVisitors' => $visitors = User::with('visitors')->orderBy('id', 'DESC')->paginate(7),
             'allReceptionVisitors' => $visitors = User::where(['block' => auth()->user()->block])->with('visitors')->paginate(6)
         ];
-        // return $data['allVisitors'];
+        // dd($data['allVisitors']);
         return view('auth.admin.dashboard')->with('data', $data);
     }
 
@@ -93,7 +93,7 @@ class AdminDashboardController extends Controller
     // MANAGE ADMIN STAFFS
     public function manageGateReceptionStaff(){
         $data = [
-            'allAdmins' => Admin::paginate(7)
+            'allAdmins' => Admin::orderBy('id', 'DESC')->paginate(7)
         ];
         return view('auth.admin.manageGateReceptionStaff')->with('data', $data);
     }
@@ -165,7 +165,7 @@ class AdminDashboardController extends Controller
 
     public function manageGeneralStaff(){
         $data = [
-            'allStaffs' => User::paginate(7)
+            'allStaffs' => User::orderBy('id', 'DESC')->paginate(7)
         ];
         return view('auth.admin.manageGeneralStaff')->with('data', $data);
     }

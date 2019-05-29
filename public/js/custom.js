@@ -1,5 +1,45 @@
 $(document).ready(function () {
 
+    // STAFF NO DATA ROW
+    let tables = document.querySelectorAll('#myRequests');
+    for (let i = 0; i < tables.length; i++) {
+        const myrows = tables[i];
+        if(myrows.rows.length == 0){
+            myrows.innerHTML = `
+                <tr style="padding:14px 0;">
+                    <td colspan="5">No records available<td>
+                </tr>
+            `;
+        }
+    }
+    
+    // ADMIN NO DATA ROW
+    let requestsApprovaltables = document.querySelectorAll('#requestsApproval');
+    for (let i = 0; i < requestsApprovaltables.length; i++) {
+        const requestRows = requestsApprovaltables[i];
+        if(requestRows.rows.length == 0){
+            requestRows.innerHTML = `
+                <tr style="padding:14px 0;">
+                    <td colspan="7">No records available<td>
+                </tr>
+            `;
+        }
+    }
+    
+    // ADMIN HISTORY NO DATA ROW
+    let requestsApprovaltablesHistory = document.querySelectorAll('#requestsApprovalHistory');
+    for (let i = 0; i < requestsApprovaltablesHistory.length; i++) {
+        const requestHistoryRows = requestsApprovaltablesHistory[i];
+        if(requestHistoryRows.rows.length == 0){
+            requestHistoryRows.innerHTML = `
+                <tr style="padding:14px 0;">
+                    <td colspan="4">No records available<td>
+                </tr>
+            `;
+        }
+    }
+    
+
     // MATERIALIZE INITS
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();

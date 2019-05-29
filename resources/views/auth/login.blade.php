@@ -52,6 +52,6 @@
 
         </div>
       </div>
-      <a href="{{route('showAdminLoginForm')}}" class="btn blue waves-effect waves-light darken-2">Login as gate/reception admin</a>
+      <a href="{{route('showAdminLoginForm')}}" class="btn blue waves-effect waves-light darken-2">Login as Admin</a>
   </main>
 @endsection
