@@ -17,7 +17,7 @@
         <div class="admins">
             <h5 class="col s12 center white-text" style="margin:0">Gate Staff</h5>
             <div class="expected col s12 m8 l8">
-                <table class="striped highlight centered responsive-table z-depth-2">
+                <table class="striped highlight centered  z-depth-2">
                     <thead>
                         <tr>
                             <h6 style="text-align:center; color:white;">Expected Guests Today</h6>
@@ -64,7 +64,7 @@
                 </table>
             </div>
             <div class="authenticated col s12 m4 l4">
-                    <table class="striped highlight centered responsive-table z-depth-2">
+                    <table class="striped highlight centered  z-depth-2">
                         <thead>
                             <tr>
                                 <h6 style="text-align:center; color:white;">Screened Guests Today</h6>
@@ -109,7 +109,7 @@
         <div class="admins">
             <h5 class="col s12 center white-text" style="margin:0">Reception Staff ({{auth()->user()->block}})</h5>
             <div class="expected col s12 m8 l8">
-                <table class="striped highlight centered responsive-table z-depth-2">
+                <table class="striped highlight centered  z-depth-2">
                     <thead>
                         <tr>
                             <h6 style="text-align:center; color:white;">Expected Guests Today</h6>
@@ -156,7 +156,7 @@
                 </table>
             </div>
             <div class="authenticated col s12 m4 l4">
-                    <table class="striped highlight centered responsive-table z-depth-2">
+                    <table class="striped highlight centered  z-depth-2">
                         <thead>
                             <tr>
                                 <h6 style="text-align:center; color:white;">Screened Guests Today</h6>

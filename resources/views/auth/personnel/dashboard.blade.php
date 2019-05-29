@@ -93,7 +93,7 @@
 
         <h5 class="col s12 center white-text" style="margin:0">Staff Dashboard</h5>
         <div class="expected col s12 m6 l6">
-            <table class="striped highlight centered responsive-table z-depth-2">
+            <table class="striped highlight centered z-depth-2">
                 <thead>
                     <tr>
                         <h6 style="text-align:center; color:white;">My Guest Request Today</h6>

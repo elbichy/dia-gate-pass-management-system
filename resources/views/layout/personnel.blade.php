@@ -22,7 +22,8 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper blue darken-2">
-            <a href="#!" style="margin-left: 20px;">Defence Intelligence Agency Gate Pass system</a>
+            <a href="#!" style="margin-left: 20px;" class="right hide-on-med-and-down">Defence Intelligence Agency Gate Pass system</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="dashboard">Home</a></li>
                 <li><a href="dashboard/myprofile">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
@@ -37,6 +38,17 @@
             </ul>
             </div>
         </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="dashboard/myprofile">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
+            <li>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+        </ul>
     </div>
     @if (session()->has('accessError'))
         <script>
