@@ -104,7 +104,7 @@
             <div class="listWrap col s12 m6 l6">
                 <div class="tableWrap">
                     <h6>LIST OF ADMINS</h6>
-                    <table class="centered striped highlight">
+                    <table class="centered responsive-table striped highlight">
                         <thead>
                             <tr>
                                 <th>Name</th>

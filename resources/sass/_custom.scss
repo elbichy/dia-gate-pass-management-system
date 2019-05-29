@@ -117,7 +117,7 @@ body {
                 justify-content: flex-start;
                 align-items: center;
                 form{
-                    background:rgba($color: #fff, $alpha: 0.8);
+                    background:rgba($color: #fff, $alpha: 1);
                     padding: 20px;
                     h6{
                         margin:0 0 20px 0;
@@ -145,7 +145,7 @@ body {
                         padding-bottom:20px;
                         border-bottom: 2px solid #eee;
                     }
-                    background:rgba($color: #fff, $alpha: 0.8);
+                    background:rgba($color: #fff, $alpha: 1);
                     padding: 20px;
                     table{
                         width: 100%;
@@ -292,7 +292,7 @@ body {
             }
             .box{
                 margin: 10px 0;
-                max-width:320px;
+                max-width:100%;
                 .formWrap{
                     display: inline-block;
                     padding: 0;
@@ -336,11 +336,20 @@ body {
             width:100%;
             display:block!important;
             background: rgba(0, 0, 0, 0.6);
-            padding: 10px 0;
+            padding: 10px 0 0 0;
             // border:2px solid red;
             margin:0!important;
 
             .admins{
+                padding: 0!important;
+                .formWrap{
+                    padding: 0!important;
+                }
+                .listWrap{
+                    margin-top: 20px;
+                    padding: 0!important;
+                }
+
                 .pageTitle{
                     
                 }

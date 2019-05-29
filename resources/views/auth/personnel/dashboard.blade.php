@@ -33,7 +33,7 @@
                             <label for="lastname">Lastname</label>
                         </div>
                     </div>
-                    <div class="col s12 m4 l4 input-field">
+                    <div class="col s12 m4 l4">
                         <label>Gender</label>
                         <select class="browser-default" name="gender" id="gender">
                             <option value="" disabled selected>Choose your option</option>
