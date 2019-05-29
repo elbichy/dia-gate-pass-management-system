@@ -22,7 +22,7 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper blue darken-2">
-            <a href="#!" style="margin-left: 20px;" class="right hide-on-med-and-down">Defence Intelligence Agency Gate Pass system</a>
+            <a href="#!" style="margin-left: 20px;" class="hide-on-med-and-down">Defence Intelligence Agency Gate Pass system</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="dashboard">Home</a></li>
