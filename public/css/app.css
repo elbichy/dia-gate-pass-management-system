@@ -1,4 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);body {
+@import url(https://fonts.googleapis.com/css?family=Nunito);* {
+  transition: all 200ms ease-in-out;
+}
+
+body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -98,6 +102,11 @@ body main .homMenuContainer .item {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+body main .homMenuContainer .item:hover {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
 }
 
 body .dashboardWrap {
@@ -412,6 +421,14 @@ body .sidenav-overlay {
   body .dashboardWrap .personnel .authenticated table tbody tr td:last-child {
     padding: 20px 0;
     width: 80px;
+  }
+
+  body .dashboardWrap .personnel .authenticated table tbody tr td a {
+    padding: 6px 4px !important;
+    height: auto !important;
+    line-height: normal !important;
+    letter-spacing: 0px !important;
+    text-transform: none !important;
   }
 
   body .dashboardWrap .personnel .authenticated ul {

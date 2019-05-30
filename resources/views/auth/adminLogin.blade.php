@@ -8,7 +8,7 @@
       <div class="box">
         <div class="z-depth-1 grey lighten-4 formWrap">
           
-          <form class="col s12" method="POST" action="{{ route('adminLogin') }}">
+          <form class="col s12" method="POST" action="{{ route('adminLogin') }}" id="loginForm ">
             @csrf
             <h6 class="blue darken-2 white-text">Admin staff login</h6>
 
@@ -46,7 +46,7 @@
               </p>
             </div>
             <div class='row'>
-              <button type='submit' name='btn_login' class='col s12 btn waves-effect waves-light green darken-2'>Login</button>
+              <button type='submit' name='btn_login' class='btn_login col s12 btn waves-effect waves-light green darken-2'>Login</button>
             </div>
           </form>
 

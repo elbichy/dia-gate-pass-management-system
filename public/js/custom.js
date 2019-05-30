@@ -7,7 +7,7 @@ $(document).ready(function () {
         if(myrows.rows.length == 0){
             myrows.innerHTML = `
                 <tr style="padding:14px 0;">
-                    <td colspan="5">No records available<td>
+                    <td colspan="4">No records available<td>
                 </tr>
             `;
         }
@@ -20,7 +20,7 @@ $(document).ready(function () {
         if(requestRows.rows.length == 0){
             requestRows.innerHTML = `
                 <tr style="padding:14px 0;">
-                    <td colspan="7">No records available<td>
+                    <td colspan="6">No records available<td>
                 </tr>
             `;
         }
@@ -33,7 +33,7 @@ $(document).ready(function () {
         if(requestHistoryRows.rows.length == 0){
             requestHistoryRows.innerHTML = `
                 <tr style="padding:14px 0;">
-                    <td colspan="4">No records available<td>
+                    <td colspan="2">No records available<td>
                 </tr>
             `;
         }
@@ -88,6 +88,75 @@ $(document).ready(function () {
         let confirmIt = confirm('Are you sure you want to decline this request?');
         confirmIt ? $('#declineRequestReceptionForm').submit() : '';
     });
+
+    $('.item').click(function(event){
+        // event.preventDefault();
+        event.currentTarget.innerHTML = `
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    $('#loginForm').submit(function(event){
+        // event.preventDefault();
+        
+        $('.btn_login').html(`
+            <div class="preloader-wrapper small active">
+                <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+            </div>
+        `);
+        $('.btn_login').css('border', 'none');
+        $('.btn_login').css('background', 'transparent');
+        $('.btn_login:focus').css('background', 'transparent');
+        $('.btn_login').removeClass('btn waves-effect waves-light green darken-2');
+    });
+    
+    $('#newVisitorForm').submit(function(event){
+        // event.preventDefault();
+        
+        $('.newVisitorSubmit').html(`
+            <div class="preloader-wrapper small active">
+                <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+                </div>
+            </div>
+        `);
+        $('.newVisitorSubmit').css('border', 'none');
+        $('.newVisitorSubmit').css('background', 'transparent');
+        $('.newVisitorSubmit').css('margin-top', '6px');
+        $('.newVisitorSubmit:focus').css('background', 'transparent');
+        $('.newVisitorSubmit').removeClass('btn waves-effect waves-light green darken-2');
+        $('.newVisitorSubmit').siblings('button').remove();
+    });
+
+
+
+
+
+
 });
 // GET COORDINATES
     // chrome --unsafely-treat-insecure-origin-as-secure="http://bitssolutions.test"  --user-data-dir=C:\testprofile
