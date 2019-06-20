@@ -2,10 +2,10 @@
 
 @section('content')
     
-    <table class="striped highlight centered  z-depth-2">
+    <table>
         <thead>
             <tr>
-                <h6 class="center">Screened Guests Today</h6>
+                <h5 class="center" style="margin-bottom:10px;">Screened guests today (Gate)</h5>
             </tr>
             <tr>
                 <th>Personnel</th>

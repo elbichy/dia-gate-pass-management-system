@@ -40,7 +40,7 @@
 
 
                     @if(auth()->user()->role == 2)
-                    <li><a href="/admin/print-gate-guest-list" >Print today guests<i class="material-icons right">print</i></a></li>
+                    <li><a href="/admin/print-gate-guest-list" target="_blank">Print today guests<i class="material-icons right">print</i></a></li>
                     @endif
 
 
