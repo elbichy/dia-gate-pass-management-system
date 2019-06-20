@@ -37,6 +37,14 @@
                     @if(auth()->user()->role == 1)
                     <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Manage Staffs<i class="material-icons right">arrow_drop_down</i></a></li>
                     @endif
+
+
+                    @if(auth()->user()->role == 2)
+                    <li><a href="/admin/print-gate-guest-list" >Print today guests<i class="material-icons right">print</i></a></li>
+                    @endif
+
+
+
                     <li><a href="dashboard/myprofile">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

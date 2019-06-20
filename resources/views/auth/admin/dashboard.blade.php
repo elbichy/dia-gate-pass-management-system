@@ -76,25 +76,25 @@
                             </tr>
                         </thead>
                         <tbody id="requestsApprovalHistory">
-                    @foreach($data['allVisitors'] as $visitors)
-                        @foreach($visitors->visitors as $visitor)
-                            @if($visitor->status > 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
-                            <tr>
-                                <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
-                                <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
-                                <td>
-                                    @if($visitor->status == 1)
-                                        <span class="orange-text">Cleared @ Gate</span>
-                                    @elseif($visitor->status == 2)
-                                        <span class="green-text">Cleared!</span>
-                                    @elseif($visitor->status == 3)
-                                        <span class="red-text">Declined</span>
+                            @foreach($data['allVisitors'] as $visitors)
+                                @foreach($visitors->visitors as $visitor)
+                                    @if($visitor->status > 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
+                                    <tr>
+                                        <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
+                                        <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
+                                        <td>
+                                            @if($visitor->status == 1)
+                                                <span class="orange-text">Cleared @ Gate</span>
+                                            @elseif($visitor->status == 2)
+                                                <span class="green-text">Cleared!</span>
+                                            @elseif($visitor->status == 3)
+                                                <span class="red-text">Declined</span>
+                                            @endif
+                                        </td>
+                                    </tr>
                                     @endif
-                                </td>
-                            </tr>
-                            @endif
-                        @endforeach
-                    @endforeach
+                                @endforeach
+                            @endforeach
                         </tbody>
                     </table>
             </div>

@@ -16,6 +16,15 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 
 Route::get('/admin/dashboard', 'Auth\AdminDashboardController@index')->name('admin.dashboard');
+
+
+
+Route::get('/admin/print-gate-guest-list', 'Auth\AdminDashboardController@printGateGuestList')->name('admin.printGateGuestList');
+
+
+
+
+
 Route::get('/admin/manage-gate-reception-staff', 'Auth\AdminDashboardController@manageGateReceptionStaff')->name('manageGateReceptionStaff');
 Route::get('/admin/manage-general-staff', 'Auth\AdminDashboardController@manageGeneralStaff')->name('manageGeneralStaff');
 

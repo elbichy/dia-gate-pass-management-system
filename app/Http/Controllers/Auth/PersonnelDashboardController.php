@@ -31,7 +31,6 @@ class PersonnelDashboardController extends Controller
             'firstname' => 'required',
             'lastname' => 'required',
             'gender' => 'required',
-            'phone' => 'required',
             'address' => 'required',
         ]);
 

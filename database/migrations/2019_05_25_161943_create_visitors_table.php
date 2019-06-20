@@ -16,11 +16,11 @@ class CreateVisitorsTable extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
-            $table->string('firstname')->nullable;
-            $table->string('lastname')->nullable;
-            $table->string('gender')->nullable;
-            $table->string('phone')->nullable;
-            $table->string('address')->nullable;            
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();            
             $table->integer('status')->default(0);            
             $table->integer('processedBy')->default(0);            
             $table->softDeletes();
