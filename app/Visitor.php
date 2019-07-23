@@ -8,8 +8,7 @@ class Visitor extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-        'firstname',
-        'lastname',
+        'fullname',
         'gender',
         'phone',
         'address',

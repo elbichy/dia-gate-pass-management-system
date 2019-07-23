@@ -11,26 +11,15 @@
             <fieldset style="margin-top:40px;">
                 <legend><h6>VISITOR DETAILS</h6></legend>
                 <div class="row">
-                    <div class="col s12 m4 l4">
+                    <div class="col s12 m8 l8">
                         <div class="input-field">
-                            <input type="text" name="firstname" id="firstname">
-                            @if ($errors->has('firstname'))
+                            <input type="text" name="fullname" id="fullname">
+                            @if ($errors->has('fullname'))
                                 <span class="helper-text red-text" >
-                                    <strong>{{ $errors->first('firstname') }}</strong>
+                                    <strong>{{ $errors->first('fullname') }}</strong>
                                 </span>
                             @endif
-                            <label for="firstname">Firstname</label>
-                        </div>
-                    </div>
-                    <div class="col s12 m4 l4">
-                        <div class="input-field">
-                            <input type="text" name="lastname" id="lastname">
-                            @if ($errors->has('gender'))
-                                <span class="helper-text red-text" >
-                                    <strong>{{ $errors->first('gender') }}</strong>
-                                </span>
-                            @endif
-                            <label for="lastname">Lastname</label>
+                            <label for="fullname">Fullname</label>
                         </div>
                     </div>
                     <div class="col s12 m4 l4">
@@ -46,31 +35,6 @@
                                 <strong>{{ $errors->first('gender') }}</strong>
                             </span>
                         @endif
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col s12 m4 l4">
-                        <div class="input-field">
-                            <input type="text" name="phone" id="phone">
-                            @if ($errors->has('phone'))
-                                <span class="helper-text red-text" >
-                                    <strong>{{ $errors->first('phone') }}</strong>
-                                </span>
-                            @endif
-                            <label for="phone">Phone No.</label>
-                        </div>
-                    </div>
-                    <div class="col s12 m8 l8">
-                        <div class="input-field">
-                            <input type="text" name="address" id="address">
-                            @if ($errors->has('address'))
-                                <span class="helper-text red-text" >
-                                    <strong>{{ $errors->first('address') }}</strong>
-                                </span>
-                            @endif
-                            <label for="address">From (Address)</label>
-                        </div>
                     </div>
                 </div>
             </fieldset>
@@ -101,7 +65,6 @@
                     <tr class="blue-text" style="border-bottom:4px solid #2196f3">
                         <th>Full Name</th>
                         <th>Gender</th>
-                        <th>Phone</th>
                         <th>Status</th>
                         <th></th>
                     </tr>
@@ -112,9 +75,8 @@
                     @foreach($data['todaysVisitors'] as $visitor)
                         @if($visitor->status < 2)
                             <tr>
-                                <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
+                                <td>{{$visitor->fullname}}</td>
                                 <td>{{$visitor->gender}}</td>
-                                <td>{{$visitor->phone}}</td>
                                 <td>
                                     {!! $visitor->status == 0 ? '<span class="orange-text">Pending</span>' : '' !!}
                                     {!! $visitor->status == 1 ? '<span class="orange-text">Cleared @ Gate</span>' : '' !!}
@@ -159,7 +121,7 @@
                     @foreach($data['allVisitors'] as $visitor)
                         @if($visitor->status > 1)
                         <tr>
-                            <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
+                            <td>{{$visitor->fullname}}</td>
                             <td>{{$visitor->gender}}</td>
                             <td>{{$visitor->created_at->format('d/m/Y')}}</td>
                             <td>

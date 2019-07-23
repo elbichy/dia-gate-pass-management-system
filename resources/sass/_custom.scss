@@ -1,6 +1,7 @@
-*{
+* {
     transition: all 200ms ease-in-out;
 }
+
 body {
     display: flex;
     min-height: 100vh;
@@ -10,79 +11,94 @@ body {
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position-y: 60%;
-    .modal{
-        .modal-content{
+    nav {
+        .nav-wrapper {
+            ul {
+                a {
+                    sup.notificationCount {
+                        width: 30px;
+                        height: 30px;
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+    .modal {
+        .modal-content {
             margin-top: 40px;
-            &:last-child{
+            &:last-child {
                 margin: 0;
             }
-            fieldset{
-                border:2px solid #ccc;
+            fieldset {
+                border: 2px solid #ccc;
                 padding: 0.35em 0.75em 0em!important;
-                legend{
-                    padding:0 10px;
+                legend {
+                    padding: 0 10px;
                     text-align: center;
-                    h6{
+                    h6 {
                         margin: 0;
                     }
                 }
-                .input-field{
-                    margin:0.5rem 0!important;
-                    .label{
+                .input-field {
+                    margin: 0.5rem 0!important;
+                    .label {
                         font-weight: bold;
                     }
                 }
             }
         }
-        .modal-footer{
-            padding:0 24px;
-            li{
+        .modal-footer {
+            padding: 0 24px;
+            li {
                 list-style: none;
             }
         }
     }
-
     main {
         // border:2px solid green;
         flex: 1;
-        display:flex;
+        display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         background: rgba(0, 0, 0, 0.6);
         padding: 10px 0;
-        .box{
+        .box {
             margin: 10px 0;
-            max-width:400px;
-            .formWrap{
+            max-width: 400px;
+            .formWrap {
                 display: inline-block;
                 padding: 0;
                 // border: 1px solid #EEE;
                 background: rgba(255, 255, 255, 0.8)!important;
                 border-radius: 10px;
-                form{
-                    h6{
+                form {
+                    h6 {
                         // background: rgb(30, 110, 201);
-                        margin-top:0px;
+                        margin-top: 0px;
                         border-top-left-radius: 9px;
                         border-top-right-radius: 9px;
                         text-align: center;
-                        padding:16px 0;
+                        padding: 16px 0;
                     }
-                    .row{
+                    .row {
                         margin: 20px 40px;
                     }
                 }
             }
         }
-        .homMenuContainer{
+        .homMenuContainer {
             margin: 30px 10px 0;
-            width:500px;
+            width: 500px;
             display: flex;
             justify-content: space-evenly;
             align-items: center;
             // border:2px solid red;
-            .item{
+            .item {
                 width: 200px;
                 height: 200px;
                 background: rgba(13, 64, 141, 0.8);
@@ -91,97 +107,91 @@ body {
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                &:hover{
-                    transform: scale(1.1,1.1);
+                &:hover {
+                    transform: scale(1.1, 1.1);
                 }
             }
         }
-
-        
     }
-
-    .dashboardWrap{
+    .dashboardWrap {
         flex: 1;
-        width:100%;
-        display:flex;
+        width: 100%;
+        display: flex;
         background: rgba(0, 0, 0, 0.6);
         padding: 10px 0;
         // border:2px solid red;
-        margin:0!important;
-
+        margin: 0!important;
         // ADMINS STYLING
-        .admins{
+        .admins {
             width: 100%;
             flex: 1;
             //  border:2px solid red;
-            .formWrap{
+            .formWrap {
                 // border:2px solid green;
                 height: auto;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
-                form{
-                    background:rgba($color: #fff, $alpha: 1);
+                form {
+                    background: rgba($color: #fff, $alpha: 1);
                     padding: 20px;
-                    h6{
-                        margin:0 0 20px 0;
+                    h6 {
+                        margin: 0 0 20px 0;
                         text-align: center;
-                        padding-bottom:20px;
+                        padding-bottom: 20px;
                         border-bottom: 2px solid #eee;
                     }
-                    .row{
-                        margin:10px 0 0;
+                    .row {
+                        margin: 10px 0 0;
                     }
                 }
             }
-            .listWrap{
+            .listWrap {
                 // border:2px solid blue;
                 height: auto;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
-                .tableWrap{
-                    width:100%;
-                    h6{
-                        margin:0 0 0px 0;
+                .tableWrap {
+                    width: 100%;
+                    h6 {
+                        margin: 0 0 0px 0;
                         text-align: center;
-                        padding-bottom:20px;
+                        padding-bottom: 20px;
                         border-bottom: 2px solid #eee;
                     }
-                    background:rgba($color: #fff, $alpha: 1);
+                    background:rgba($color: #fff,
+                    $alpha: 1);
                     padding: 20px;
-                    table{
+                    table {
                         width: 100%;
-                        tbody{
-                            tr{
-                                td{
+                        tbody {
+                            tr {
+                                td {
                                     padding: 8px 5px;
                                 }
                             }
                         }
                     }
-                    .page{
-                        .pagination{
-                            margin:10px 0 auto!important;
+                    .page {
+                        .pagination {
+                            margin: 10px 0 auto!important;
                         }
                     }
                 }
             }
-            .pageTitle{
-                
-            }
-            
-            .expected{
-                padding:10px;
-                table{
+            .pageTitle {}
+            .expected {
+                padding: 10px;
+                table {
                     background: #fff;
                     max-height: 450px;
-                    tbody{
-                        tr{
-                            td{
-                                &:last-child{
+                    tbody {
+                        tr {
+                            td {
+                                &:last-child {
                                     // border: 2px solid red;
                                     padding: 0;
                                     width: 80px;
@@ -191,16 +201,15 @@ body {
                     }
                 }
             }
-
-            .authenticated{
-                padding:10px;
-                table{
+            .authenticated {
+                padding: 10px;
+                table {
                     max-height: 450px;
                     background: #fff;
-                    tbody{
-                        tr{
-                            td{
-                                &:last-child{
+                    tbody {
+                        tr {
+                            td {
+                                &:last-child {
                                     // border: 2px solid red;
                                     padding: 0;
                                     width: 80px;
@@ -211,27 +220,25 @@ body {
                 }
             }
         }
-
         // PERSONNEL STYLING
-        .personnel{
+        .personnel {
             width: 100%;
             flex: 1;
             position: relative;
-            .btn-floating{
+            .btn-floating {
                 position: fixed;
                 bottom: 10px;
                 right: 10px;
             }
-            
-            .expected{
-                padding:10px;
-                table{
+            .expected {
+                padding: 10px;
+                table {
                     background: #fff;
                     max-height: 450px;
-                    tbody{
-                        tr{
-                            td{
-                                &:last-child{
+                    tbody {
+                        tr {
+                            td {
+                                &:last-child {
                                     // border: 2px solid red;
                                     padding: 0;
                                     width: 80px;
@@ -240,23 +247,22 @@ body {
                         }
                     }
                 }
-                ul{
+                ul {
                     background: #fff;
                     margin: 0;
                     padding: 10px;
-                    border-top:2px solid #eee;
+                    border-top: 2px solid #eee;
                 }
             }
-
-            .authenticated{
-                padding:10px;
-                table{
+            .authenticated {
+                padding: 10px;
+                table {
                     max-height: 450px;
                     background: #fff;
-                    tbody{
-                        tr{
-                            td{
-                                &:last-child{
+                    tbody {
+                        tr {
+                            td {
+                                &:last-child {
                                     // border: 2px solid red;
                                     padding: 0;
                                     width: 80px;
@@ -265,23 +271,21 @@ body {
                         }
                     }
                 }
-                ul{
+                ul {
                     background: #fff;
                     margin: 0;
                     padding: 10px;
-                    border-top:2px solid #eee;
+                    border-top: 2px solid #eee;
                 }
             }
         }
     }
-    
-    .sidenav-overlay{
+    .sidenav-overlay {
         z-index: 990!important;
     }
 }
 
 @media only screen and (max-width: 600px) {
-
     body {
         background-repeat: no-repeat;
         background-size: cover;
@@ -289,40 +293,39 @@ body {
         background-position-x: 20%;
         background-attachment: fixed;
         main {
-            .homeHeader{
+            .homeHeader {
                 font-size: 20px;
             }
-            .homeSubtitle{
+            .homeSubtitle {
                 font-size: 14px;
             }
-            .box{
+            .box {
                 margin: 10px 0;
-                max-width:100%;
-                .formWrap{
+                max-width: 100%;
+                .formWrap {
                     display: inline-block;
                     padding: 0;
                     // border: 1px solid #EEE;
                     background: rgba(255, 255, 255, 0.8)!important;
                     border-radius: 0px;
-                    form{
-                        h6{
+                    form {
+                        h6 {
                             border-top-left-radius: 0px;
                             border-top-right-radius: 0px;
                             text-align: center;
-                            padding:16px 0;
+                            padding: 16px 0;
                         }
-                        .row{
+                        .row {
                             margin: 20px 40px;
                         }
                     }
                 }
             }
-
-            .homMenuContainer{
+            .homMenuContainer {
                 margin: 10px 0;
-                max-width:320px;
+                max-width: 320px;
                 flex-direction: column;
-                .item{
+                .item {
                     width: 150px;
                     height: 150px;
                     background: rgba(13, 64, 141, 0.8);
@@ -335,40 +338,34 @@ body {
                 }
             }
         }
-
-        .dashboardWrap{
+        .dashboardWrap {
             flex: 1;
-            width:100%;
-            display:block!important;
+            width: 100%;
+            display: block!important;
             background: rgba(0, 0, 0, 0.6);
             padding: 10px 0 0 0;
             // border:2px solid red;
-            margin:0!important;
-
-            .admins{
+            margin: 0!important;
+            .admins {
                 padding: 0!important;
-                .formWrap{
+                .formWrap {
                     padding: 0!important;
                 }
-                .listWrap{
+                .listWrap {
                     margin-top: 20px;
                     padding: 0!important;
                 }
-
-                .pageTitle{
-                    
-                }
-                
-                .expected{
-                    padding:10px;
-                    table{
+                .pageTitle {}
+                .expected {
+                    padding: 10px;
+                    table {
                         background: #fff;
                         max-height: 1000px!important;
                         height: 100%!important;
-                        tbody{
-                            tr{
-                                td{
-                                    &:last-child{
+                        tbody {
+                            tr {
+                                td {
+                                    &:last-child {
                                         // border: 2px solid red;
                                         padding: 0;
                                         width: 80px;
@@ -379,17 +376,16 @@ body {
                         }
                     }
                 }
-        
-                .authenticated{
-                    padding:10px;
-                    table{
+                .authenticated {
+                    padding: 10px;
+                    table {
                         max-height: 1000px!important;
                         background: #fff;
                         height: 100%!important;
-                        tbody{
-                            tr{
-                                td{
-                                    &:last-child{
+                        tbody {
+                            tr {
+                                td {
+                                    &:last-child {
                                         // border: 2px solid red;
                                         padding: 20px 0;
                                         width: 80px;
@@ -400,78 +396,73 @@ body {
                     }
                 }
             }
-
-
-            .personnel{
-                
-                .expected{
-                    padding:10px;
-                    table{
+            .personnel {
+                .expected {
+                    padding: 10px;
+                    table {
                         background: #fff;
                         max-height: 1000px!important;
                         height: 100%!important;
-                        tbody{
-                            tr{
-                                td{
-                                    &:last-child{
+                        tbody {
+                            tr {
+                                td {
+                                    &:last-child {
                                         // border: 2px solid red;
                                         padding: 0;
                                         width: 80px;
                                         padding: 20px 0;
                                     }
-                                    a{
+                                    a {
                                         padding: 6px 4px!important;
-                                        height:auto!important;
+                                        height: auto!important;
                                         line-height: normal!important;
-                                        letter-spacing:0px!important;
+                                        letter-spacing: 0px!important;
                                         text-transform: none!important;
                                     }
                                 }
                             }
                         }
                     }
-                    ul{
+                    ul {
                         background: #fff;
                         margin: 0;
                         padding: 10px;
-                        border-top:2px solid #eee;
+                        border-top: 2px solid #eee;
                     }
                 }
-        
-                .authenticated{
-                    padding:10px;
-                    table{
+                .authenticated {
+                    padding: 10px;
+                    table {
                         max-height: 1000px!important;
                         background: #fff;
                         height: 100%!important;
-                        tbody{
-                            tr{
-                                td{
-                                    &:last-child{
+                        tbody {
+                            tr {
+                                td {
+                                    &:last-child {
                                         // border: 2px solid red;
                                         padding: 20px 0;
                                         width: 80px;
                                     }
-                                    a{
+                                    a {
                                         padding: 6px 4px!important;
-                                        height:auto!important;
+                                        height: auto!important;
                                         line-height: normal!important;
-                                        letter-spacing:0px!important;
+                                        letter-spacing: 0px!important;
                                         text-transform: none!important;
                                     }
                                 }
                             }
                         }
                     }
-                    ul{
+                    ul {
                         background: #fff;
                         margin: 0;
                         padding: 10px;
-                        border-top:2px solid #eee;
+                        border-top: 2px solid #eee;
                     }
                 }
             }
         }
     }
-
 }

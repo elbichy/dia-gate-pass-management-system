@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\User;
 use App\Admin;
 use App\Visitor;
 use Hash;
 use Carbon\Carbon;
+use App\Notifications\GateApproval;
+
 class AdminDashboardController extends Controller
 {
     public function __construct()
@@ -43,7 +46,21 @@ class AdminDashboardController extends Controller
             $visitor->status = 1;
             $visitor->processedBy = auth()->user()->id;
             $visitor->verifiedAtGate = Carbon::now();
+
+            $refNumber = Str::random(12);
             if($visitor->save()){
+
+                $staff = User::find($visitor->user_id);
+                $data = [
+                    'type' => 'approval',
+                    'status' => true,
+                    'msg' => 'Your guest has been approved',
+                    'admin' => auth()->user()->firstname.' '.auth()->user()->firstname,
+                    'admin_id' => auth()->user()->id,
+                    'refNumber' => $refNumber
+                ];
+                $staff->notify(new GateApproval($data));
+    
                 return back()->with('success', 'Request approved!');
             }
         }
@@ -58,7 +75,21 @@ class AdminDashboardController extends Controller
             $visitor->status = 3;
             $visitor->processedBy = auth()->user()->id;
             $visitor->verifiedAtGate = Carbon::now();
+
+            $refNumber = Str::random(12);
             if($visitor->save()){
+
+                $staff = User::find($visitor->user_id);
+                $data = [
+                    'type' => 'decline',
+                    'status' => false,
+                    'msg' => 'Your guest has been declined',
+                    'admin' => auth()->user()->firstname.' '.auth()->user()->firstname,
+                    'admin_id' => auth()->user()->id,
+                    'refNumber' => $refNumber
+                ];
+                $staff->notify(new GateApproval($data));
+
                 return back()->with('success', 'Request Cancelled!');
             }
         }

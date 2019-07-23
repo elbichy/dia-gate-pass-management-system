@@ -55,6 +55,13 @@
                         </form>
                     </li>
                 </ul>
+                {{-- <ul class="right">
+                    <a href="#" style="margin-right: 14px;" data-target="notifications" class="dropdown-trigger right hide-on-small-only">
+                        <i style="margin-right: 0px;" class="material-icons left">notifications</i>
+                        <sup class="red blue notificationCount">0</sup>
+                    </a>
+                    <!-- Dropdown Structure -->
+                </ul> --}}
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">

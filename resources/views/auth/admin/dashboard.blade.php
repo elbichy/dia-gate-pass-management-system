@@ -27,7 +27,6 @@
                             <th>Building</th>
                             <th>Guest</th>
                             <th>Gender</th>
-                            <th>Phone</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -40,9 +39,8 @@
                             <tr>
                                 <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
                                 <td>{{$visitors->block}}</td>
-                                <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
+                                <td>{{$visitor->fullname}}</td>
                                 <td>{{$visitor->gender}}</td>
-                                <td>{{$visitor->phone}}</td>
                                 <td><a href="#" data-requestid="{{$visitor->id}}" class="approveRequest btn btn-small waves-effect waves-light green">Approve</a></td>
                                 <form action="{{url('admin/approveGate')}}" method="post" name="approveRequestForm" id="approveRequestForm">
                                     @method('put')
@@ -81,7 +79,7 @@
                                     @if($visitor->status > 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
                                     <tr>
                                         <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
-                                        <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
+                                        <td>{{$visitor->fullname}}</td>
                                         <td>
                                             @if($visitor->status == 1)
                                                 <span class="orange-text">Cleared @ Gate</span>

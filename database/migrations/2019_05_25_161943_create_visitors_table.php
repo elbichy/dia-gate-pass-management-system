@@ -16,8 +16,7 @@ class CreateVisitorsTable extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
-            $table->string('firstname')->nullable();
-            $table->string('lastname')->nullable();
+            $table->string('fullname')->nullable();
             $table->string('gender')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();            

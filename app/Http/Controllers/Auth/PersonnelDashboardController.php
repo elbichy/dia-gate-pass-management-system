@@ -5,8 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use App\User;
+use App\Admin;
 use App\Visitor;
+use App\Notifications\GuestRequest;
+
 class PersonnelDashboardController extends Controller
 {
     public function __construct()
@@ -28,23 +32,33 @@ class PersonnelDashboardController extends Controller
 
     public function submitRequest(Request $request){
         $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
+            'fullname' => 'required',
             'gender' => 'required',
-            'address' => 'required',
         ]);
 
         $user = User::find(auth()->user()->id);
         $data = [
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
+            'fullname' => $request->fullname,
             'gender' => $request->gender,
-            'phone' => $request->phone,
-            'address' => $request->address,
         ];
-
+        $refNumber = Str::random(12);
         if($user->visitors()->create($data)){
+            
+            $admins = Admin::where('role', 2)->get();
+            $data = [
+                'type' => 'request',
+                'msg' => 'Guest request',
+                'staff' => auth()->user()->firstname.' '.auth()->user()->firstname,
+                'staff_id' => auth()->user()->id,
+                'refNumber' => $refNumber
+            ];
+
+            foreach ($admins as $admin) {
+                $admin->notify(new GuestRequest($data));
+            }
+
             return back()->with('success', 'Request submitted successfully!');
+
         }
     }
 
