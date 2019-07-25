@@ -54,7 +54,7 @@ class AdminDashboardController extends Controller
                 $data = [
                     'type' => 'approval',
                     'status' => true,
-                    'msg' => 'Your guest has been approved',
+                    'msg' => $visitor->fullname.' has been approved at gate',
                     'admin' => auth()->user()->firstname.' '.auth()->user()->firstname,
                     'admin_id' => auth()->user()->id,
                     'refNumber' => $refNumber
@@ -83,7 +83,7 @@ class AdminDashboardController extends Controller
                 $data = [
                     'type' => 'decline',
                     'status' => false,
-                    'msg' => 'Your guest has been declined',
+                    'msg' => $visitor->fullname.' has been declined at gate',
                     'admin' => auth()->user()->firstname.' '.auth()->user()->firstname,
                     'admin_id' => auth()->user()->id,
                     'refNumber' => $refNumber
@@ -211,6 +211,22 @@ class AdminDashboardController extends Controller
             'allStaffs' => User::orderBy('id', 'DESC')->paginate(7)
         ];
         return view('auth.admin.manageGeneralStaff')->with('data', $data);
+    }
+
+
+    // LOAD NOTIFICATION
+    public function loadNotification($count){
+        if(auth()->user()->unreadNotifications->count() > 0){
+            if(auth()->user()->unreadNotifications->count() > $count){
+                return Response()->json(['newCount' => auth()->user()->unreadNotifications->count(), 'data' => auth()->user()->unreadNotifications->first(), 'greater' => true, 'less' => false]);
+            }elseif(auth()->user()->notifications->count() < $count){
+                return Response()->json(['newCount' => auth()->user()->unreadNotifications->count(), 'data' => auth()->user()->unreadNotifications->first(), 'greater' => false, 'less' => true]);
+            }else{
+                return Response()->json(['newCount' => auth()->user()->unreadNotifications->count(), 'data' => auth()->user()->unreadNotifications->first(), 'greater' => false, 'less' => false]);
+            }
+        }else{
+            return Response()->json(['newCount' => 0, 'greater' => false, 'less' => false]);
+        }
     }
 
 }

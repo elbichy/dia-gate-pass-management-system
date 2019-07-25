@@ -45,3 +45,6 @@ Route::post('/admin/logout', 'Auth\AdminLoginController@adminLogout')->name('adm
 Route::get('/personnel', 'Auth\PersonnelDashboardController@index')->name('personnel');
 Route::post('/personnel/submitRequest', 'Auth\PersonnelDashboardController@submitRequest')->name('submitRequest');
 Route::delete('/personnel/deleteRequest', 'Auth\PersonnelDashboardController@deleteRequest')->name('deleteRequest');
+
+Route::get('/personnel/load-notification/{count}', 'Auth\PersonnelDashboardController@loadNotification')->name('loadNotification');
+Route::get('/admin/load-notification/{count}', 'Auth\AdminDashboardController@loadNotification')->name('loadNotification');

@@ -12,9 +12,16 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+    
+    <script src="{{asset('js/moment.js')}}"></script>
+    <script src="{{asset('js/moment-timezone-with-data-1970-2030.js')}}"></script>
+    <script src="{{asset('js/livestamp.min.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
     {!! MaterializeCSS::include_js() !!}
+    <script src="{{asset('js/lately.js')}}"></script>
+    <script src="{{asset('js/axios.min.js')}}"></script>
     <script src="{{asset('js/pace.min.js')}}"></script>
+    <script src="{{asset('js/ion.sound.min.js')}}"></script>
     <script src="{{asset('js/wnoty.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
 </head>
@@ -22,27 +29,48 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper blue darken-2">
-            <a href="#!" style="margin-left: 20px;" class="hide-on-med-and-down">Defence Intelligence Agency Gate Pass system</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="dashboard">Home</a></li>
-                <li><a href="dashboard/myprofile">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
-                <li>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Logout
+                <a href="#!" style="margin-left: 20px;" class="hide-on-med-and-down">Defence Intelligence Agency Gate Pass system</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="dashboard">Home</a></li>
+                    <li><a href="dashboard/myprofile">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
+                    <li>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
+                <ul class="right">
+                    <a href="#" style="margin-right: 14px;" data-target='notifications'  class="dropdown-trigger right hide-on-small-only">
+                        <i style="margin-right: 0px;" class="material-icons left">notifications</i>
+                        {!! auth()->user()->unreadNotifications->count() > 0 ? '<sup class="red lighten-2 notificationCount">'.auth()->user()->unreadNotifications->count().'</sup>' : '<sup class="red blue notificationCount">0</sup>' !!}
                     </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </li>
-            </ul>
-            <ul class="right">
-                <a href="#" style="margin-right: 14px;" data-target="notifications" class="dropdown-trigger right hide-on-small-only">
-                    <i style="margin-right: 0px;" class="material-icons left">notifications</i>
-                    <sup class="red blue notificationCount">0</sup>
-                </a>
-                <!-- Dropdown Structure -->
-            </ul>
+                    <!-- Dropdown Structure -->
+                    <ul id='notifications' class='dropdown-content'>
+                        @foreach(auth()->user()->unreadNotifications as $notificationCollection)
+                            @foreach($notificationCollection->data as $notificationItem)
+                            <li>
+                                <a href="#">
+                                    <i class="material-icons">monetization_on</i>
+                                    <div class='notMsg'>
+                                        <p>{{$notificationItem['msg']}}</p>
+                                        <sub>{{Carbon\Carbon::parse($notificationCollection->created_at)->diffForHumans()}}</sub>
+                                    </div>
+                                </a>
+                            </li>
+                            @endforeach
+                        @endforeach
+                    </ul>
+                </ul>
+                <ul> {{-- FOR MOBILE --}}
+                    <a  href="#" style="margin-left: 14px;" data-target='notifications'  class="dropdown-trigger left hide-on-med-and-up">
+                        <i style="margin-right: 0px;" class="material-icons left">notifications</i>
+                        {!! auth()->user()->unreadNotifications->count() > 0 ? '<sup class="red lighten-2 notificationCount">'.auth()->user()->unreadNotifications->count().'</sup>' : '<sup class="red blue notificationCount">0</sup>' !!}
+                    </a>
+                </ul>
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
@@ -101,6 +129,16 @@
             });
         </script>
     @endif
+
     @yield('content')
+
+    {{-- @can('isOwner') --}}
+    <script>
+            // CHECK FOR NEW NOTIFICATION EVERY SECOND
+            window.setInterval(function(){
+                loadNotification('{{asset('storage')}}');
+            }, 10000);   
+        </script>
+    {{-- @endcan --}}
 </body>
 </html>

@@ -24,6 +24,30 @@ body {
                         border-radius: 50%;
                     }
                 }
+                #notifications {
+                    width: auto!important;
+                    max-width: 250px;
+                    top: 64px!important;
+                    li {
+                        a {
+                            color: var(--primary-bg-dark);
+                            display: flex;
+                            align-items: center;
+                            // i{
+                            //     // flex:1;
+                            // }
+                            .notMsg {
+                                // flex: 1;
+                                p {
+                                    margin: 0;
+                                }
+                                sub {
+                                    color: #666;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -292,6 +316,46 @@ body {
         background-position-y: 80%;
         background-position-x: 20%;
         background-attachment: fixed;
+        nav {
+            .nav-wrapper {
+                ul {
+                    a {
+                        sup.notificationCount {
+                            width: 30px;
+                            height: 30px;
+                            display: inline-flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 50%;
+                        }
+                    }
+                    #notifications {
+                        width: auto!important;
+                        max-width: 250px;
+                        top: 56px!important;
+                        li {
+                            a {
+                                color: var(--primary-bg-dark);
+                                display: flex;
+                                align-items: center;
+                                // i{
+                                //     // flex:1;
+                                // }
+                                .notMsg {
+                                    // flex: 1;
+                                    p {
+                                        margin: 0;
+                                    }
+                                    sub {
+                                        color: #666;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         main {
             .homeHeader {
                 font-size: 20px;

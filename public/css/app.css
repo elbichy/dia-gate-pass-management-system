@@ -22,6 +22,26 @@ body nav .nav-wrapper ul a sup.notificationCount {
   border-radius: 50%;
 }
 
+body nav .nav-wrapper ul #notifications {
+  width: auto !important;
+  max-width: 250px;
+  top: 64px !important;
+}
+
+body nav .nav-wrapper ul #notifications li a {
+  color: var(--primary-bg-dark);
+  display: flex;
+  align-items: center;
+}
+
+body nav .nav-wrapper ul #notifications li a .notMsg p {
+  margin: 0;
+}
+
+body nav .nav-wrapper ul #notifications li a .notMsg sub {
+  color: #666;
+}
+
 body .modal .modal-content {
   margin-top: 40px;
 }
@@ -282,6 +302,35 @@ body .sidenav-overlay {
     background-position-y: 80%;
     background-position-x: 20%;
     background-attachment: fixed;
+  }
+
+  body nav .nav-wrapper ul a sup.notificationCount {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  body nav .nav-wrapper ul #notifications {
+    width: auto !important;
+    max-width: 250px;
+    top: 56px !important;
+  }
+
+  body nav .nav-wrapper ul #notifications li a {
+    color: var(--primary-bg-dark);
+    display: flex;
+    align-items: center;
+  }
+
+  body nav .nav-wrapper ul #notifications li a .notMsg p {
+    margin: 0;
+  }
+
+  body nav .nav-wrapper ul #notifications li a .notMsg sub {
+    color: #666;
   }
 
   body main .homeHeader {

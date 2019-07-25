@@ -49,6 +49,7 @@ class PersonnelDashboardController extends Controller
                 'type' => 'request',
                 'msg' => 'Guest request',
                 'staff' => auth()->user()->firstname.' '.auth()->user()->firstname,
+                'office' => auth()->user()->office,
                 'staff_id' => auth()->user()->id,
                 'refNumber' => $refNumber
             ];
@@ -66,6 +67,21 @@ class PersonnelDashboardController extends Controller
         $item = User::find(auth()->user()->id);
         if($item->visitors()->where('id', $request->deleterequestid)->delete()){
             return back()->with('success', 'Request deleted successfully!');
+        }
+    }
+
+    // LOAD NOTIFICATION
+    public function loadNotification($count){
+        if(auth()->user()->unreadNotifications->count() > 0){
+            if(auth()->user()->unreadNotifications->count() > $count){
+                return Response()->json(['newCount' => auth()->user()->unreadNotifications->count(), 'data' => auth()->user()->unreadNotifications->first(), 'greater' => true, 'less' => false]);
+            }elseif(auth()->user()->notifications->count() < $count){
+                return Response()->json(['newCount' => auth()->user()->unreadNotifications->count(), 'data' => auth()->user()->unreadNotifications->first(), 'greater' => false, 'less' => true]);
+            }else{
+                return Response()->json(['newCount' => auth()->user()->unreadNotifications->count(), 'data' => auth()->user()->unreadNotifications->first(), 'greater' => false, 'less' => false]);
+            }
+        }else{
+            return Response()->json(['newCount' => 0, 'greater' => false, 'less' => false]);
         }
     }
 }
