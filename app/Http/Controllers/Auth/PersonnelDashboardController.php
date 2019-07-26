@@ -48,7 +48,7 @@ class PersonnelDashboardController extends Controller
             $data = [
                 'type' => 'request',
                 'msg' => 'Guest request',
-                'staff' => auth()->user()->firstname.' '.auth()->user()->firstname,
+                'staff' => auth()->user()->firstname.' '.auth()->user()->lastname,
                 'office' => auth()->user()->office,
                 'staff_id' => auth()->user()->id,
                 'refNumber' => $refNumber

@@ -11,6 +11,7 @@ use App\Visitor;
 use Hash;
 use Carbon\Carbon;
 use App\Notifications\GateApproval;
+use App\Notifications\ReceptionApproval;
 
 class AdminDashboardController extends Controller
 {
@@ -55,11 +56,16 @@ class AdminDashboardController extends Controller
                     'type' => 'approval',
                     'status' => true,
                     'msg' => $visitor->fullname.' has been approved at gate',
-                    'admin' => auth()->user()->firstname.' '.auth()->user()->firstname,
+                    'admin' => auth()->user()->firstname.' '.auth()->user()->lastname,
+                    'staff' => auth()->user()->firstname.' '.auth()->user()->lastname,
+                    'office' => auth()->user()->office,
                     'admin_id' => auth()->user()->id,
                     'refNumber' => $refNumber
                 ];
                 $staff->notify(new GateApproval($data));
+
+                $admin = Admin::where(['block' => $staff->block, 'role' => 3])->first();
+                $admin->notify(new GateApproval($data));
     
                 return back()->with('success', 'Request approved!');
             }
@@ -106,7 +112,20 @@ class AdminDashboardController extends Controller
             $visitor->status = 2;
             $visitor->processedBy = auth()->user()->id;
             $visitor->verifiedAtReception = Carbon::now();
+
+            $refNumber = Str::random(12);
             if($visitor->save()){
+
+                $staff = User::find($visitor->user_id);
+                $data = [
+                    'type' => 'approval',
+                    'status' => true,
+                    'msg' => $visitor->fullname.' has been approved at reception',
+                    'admin' => auth()->user()->firstname.' '.auth()->user()->firstname,
+                    'admin_id' => auth()->user()->id,
+                    'refNumber' => $refNumber
+                ];
+                $staff->notify(new ReceptionApproval($data));
                 return back()->with('success', 'Request approved!');
             }
         }
@@ -121,7 +140,21 @@ class AdminDashboardController extends Controller
             $visitor->status = 3;
             $visitor->processedBy = auth()->user()->id;
             $visitor->verifiedAtReception = Carbon::now();
+
+            $refNumber = Str::random(12);
             if($visitor->save()){
+
+                $staff = User::find($visitor->user_id);
+                $data = [
+                    'type' => 'decline',
+                    'status' => false,
+                    'msg' => $visitor->fullname.' has been declined at reception',
+                    'admin' => auth()->user()->firstname.' '.auth()->user()->firstname,
+                    'admin_id' => auth()->user()->id,
+                    'refNumber' => $refNumber
+                ];
+                $staff->notify(new ReceptionApproval($data));
+
                 return back()->with('success', 'Request Cancelled!');
             }
         }

@@ -24,5 +24,6 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => Hash::make('12345678'),
         'gender' => 'male',
         'block' => 'hq',
+        'office' => 'ICT',
     ];
 });
