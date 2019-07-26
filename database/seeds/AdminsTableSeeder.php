@@ -20,6 +20,7 @@ class AdminsTableSeeder extends Seeder
                 'password' => Hash::make('12345678'),
                 'gender' => 'male',
                 'block' => 'hq',
+                'office' => 'admin',
                 'role' => 1,
             ],
             [
@@ -29,6 +30,7 @@ class AdminsTableSeeder extends Seeder
                 'password' => Hash::make('12345678'),
                 'gender' => 'male',
                 'block' => 'hq',
+                'office' => 'gate',
                 'role' => 2,
             ],
             [
@@ -38,6 +40,7 @@ class AdminsTableSeeder extends Seeder
                 'password' => Hash::make('12345678'),
                 'gender' => 'female',
                 'block' => 'hq',
+                'office' => 'reception',
                 'role' => 3,
             ]
         ];
