@@ -169,7 +169,7 @@
                             @if($visitor->status > 1 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
                             <tr>
                                 <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
-                                <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
+                                <td>{{$visitor->fullname}}</td>
                                 <td>
                                     @if($visitor->status == 1)
                                         <span class="orange-text">Cleared @ Gate</span>
