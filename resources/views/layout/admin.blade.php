@@ -84,14 +84,16 @@
                             </li>
                             @endforeach
                         @endforeach
-                        <li class="light-blue darken-4">
-                            <a href="{{ route('clearAdminNotification') }}" class="white-text">
-                                <i class="material-icons">clear_all</i>
-                                <div class='notMsg'>
-                                    <sub class="white-text">Clear all</sub>
-                                </div>
-                            </a>
-                        </li>
+                        @if (auth()->user()->unreadNotifications->count() > 0)
+                            <li class="light-blue darken-4">
+                                <a href="{{ route('clearAdminNotification') }}" class="white-text">
+                                    <i class="material-icons">clear_all</i>
+                                    <div class='notMsg'>
+                                        <sub class="white-text">Clear all</sub>
+                                    </div>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </ul>
                 {{-- <ul> 
