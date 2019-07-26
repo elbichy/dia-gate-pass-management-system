@@ -84,4 +84,15 @@ class PersonnelDashboardController extends Controller
             return Response()->json(['newCount' => 0, 'greater' => false, 'less' => false]);
         }
     }
+
+    // CLEAR NOTIFICATION
+    public function clearNotification(){
+
+        $user = User::find(auth()->user()->id);
+        foreach ($user->unreadNotifications as $notification) {
+            $notification->markAsRead();
+        }
+        return  back();
+    }
+
 }

@@ -261,5 +261,15 @@ class AdminDashboardController extends Controller
             return Response()->json(['newCount' => 0, 'greater' => false, 'less' => false]);
         }
     }
+    
+    // CLEAR NOTIFICATION
+    public function clearNotification(){
+
+        $admin = Admin::find(auth()->user()->id);
+        foreach ($admin->unreadNotifications as $notification) {
+            $notification->markAsRead();
+        }
+        return  back();
+    }
 
 }

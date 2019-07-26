@@ -49,20 +49,27 @@
                         {!! auth()->user()->unreadNotifications->count() > 0 ? '<sup class="red lighten-2 notificationCount">'.auth()->user()->unreadNotifications->count().'</sup>' : '<sup class="red blue notificationCount">0</sup>' !!}
                     </a>
                     <!-- Dropdown Structure -->
-                    <ul id='notifications' class='dropdown-content'>
+                    <ul id='notifications' class='dropdown-content' style="z-index: -100;">
                         @foreach(auth()->user()->unreadNotifications as $notificationCollection)
                             @foreach($notificationCollection->data as $notificationItem)
-                            <li>
-                                <a href="#">
-                                    <i class="material-icons">monetization_on</i>
+                            <li class="light-blue darken-2">
+                                <a href="#" class="white-text">
                                     <div class='notMsg'>
                                         <p>{{$notificationItem['msg']}}</p>
-                                        <sub>{{Carbon\Carbon::parse($notificationCollection->created_at)->diffForHumans()}}</sub>
+                                        <sub class="white-text">{{Carbon\Carbon::parse($notificationCollection->created_at)->diffForHumans()}}</sub>
                                     </div>
                                 </a>
                             </li>
                             @endforeach
                         @endforeach
+                        <li class="light-blue darken-4">
+                            <a href="{{ route('clearNotification') }}" class="white-text">
+                                <i class="material-icons">clear_all</i>
+                                <div class='notMsg'>
+                                    <sub class="white-text">Clear all</sub>
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </ul>
                 <ul> {{-- FOR MOBILE --}}
