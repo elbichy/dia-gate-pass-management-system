@@ -23,18 +23,18 @@ class AdminDashboardController extends Controller
     public function index(){
 
         $data = [
-            'allVisitors' => $visitors = User::with('visitors')->orderBy('id', 'DESC')->paginate(7),
-            'allReceptionVisitors' => $visitors = User::where(['block' => auth()->user()->block])->with('visitors')->paginate(6)
+            'allVisitors' => User::with('visitors')->orderBy('id', 'DESC')->paginate(7),
+            'allReceptionVisitors' => User::where(['block' => auth()->user()->block])->with('visitors')->get()
         ];
-        // dd($data['allVisitors']);
+        // dd($data['allReceptionVisitors']);
         return view('auth.admin.dashboard')->with('data', $data);
     }
     
     
     public function printGateGuestList(){
         $data = [
-            'allVisitors' => $visitors = User::with('visitors')->orderBy('id', 'DESC')->paginate(7),
-            'allReceptionVisitors' => $visitors = User::where(['block' => auth()->user()->block])->with('visitors')->paginate(6)
+            'allVisitors' => User::with('visitors')->orderBy('id', 'DESC')->paginate(7),
+            'allReceptionVisitors' => User::where(['block' => auth()->user()->block])->with('visitors')->paginate(6)
         ];
         // dd($data['allVisitors']);
         return view('auth.admin.printGuestList')->with('data', $data);

@@ -117,7 +117,6 @@
                             <th>Building</th>
                             <th>Guest</th>
                             <th>Gender</th>
-                            <th>Phone</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -130,9 +129,8 @@
                             <tr>
                                 <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
                                 <td>{{$visitors->block}}</td>
-                                <td>{{$visitor->firstname.' '.$visitor->lastname}}</td>
+                                <td>{{$visitor->fullname}}</td>
                                 <td>{{$visitor->gender}}</td>
-                                <td>{{$visitor->phone}}</td>
                                 <td><a href="#" data-requestid="{{$visitor->id}}" class="approveRequestReception btn btn-small waves-effect waves-light green">Approve</a></td>
                                 <form action="{{url('admin/approveReception')}}" method="post" name="approveRequestReceptionForm" id="approveRequestReceptionForm">
                                     @method('put')
