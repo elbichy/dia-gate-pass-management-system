@@ -63,7 +63,7 @@
                             @endforeach
                         @endforeach
                         @if (auth()->user()->unreadNotifications->count() > 0)
-                            <li class="light-blue darken-4">
+                            <li class="light-blue darken-3">
                                 <a href="{{ route('clearNotification') }}" class="white-text">
                                     <i class="material-icons">clear_all</i>
                                     <div class='notMsg'>
