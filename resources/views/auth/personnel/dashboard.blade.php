@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col s12 m8 l8">
                         <div class="input-field">
-                            <input type="text" name="fullname" id="fullname">
+                            <input type="text" name="fullname" id="fullname" required>
                             @if ($errors->has('fullname'))
                                 <span class="helper-text red-text" >
                                     <strong>{{ $errors->first('fullname') }}</strong>
@@ -24,7 +24,7 @@
                     </div>
                     <div class="col s12 m4 l4">
                         <label>Gender</label>
-                        <select class="browser-default" name="gender" id="gender">
+                        <select class="browser-default" name="gender" id="gender" required>
                             <option value="" disabled selected>Choose your option</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
