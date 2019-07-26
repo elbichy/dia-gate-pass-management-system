@@ -192,8 +192,12 @@ function loadNotification(base_url) {
                 });
                 ion.sound.play("door_bell");
                 console.log(response.data.data);
+                window.setInterval(function() {
+                    location.reload();
+                }, 4000);
             }
             $('.notificationCount').html(response.data.newCount);
+
         })
         .catch(function(error) {
             // handle error
@@ -203,8 +207,6 @@ function loadNotification(base_url) {
             // always executed
         });
 }
-
-
 
 // LOAD NOTIFICATION ASYNC
 function loadAdminNotification(base_url) {
@@ -240,8 +242,12 @@ function loadAdminNotification(base_url) {
                 });
                 ion.sound.play("door_bell");
                 console.log(response.data.data);
+                window.setInterval(function() {
+                    location.reload();
+                }, 4000);
             }
             $('.notificationCount').html(response.data.newCount);
+
         })
         .catch(function(error) {
             // handle error
