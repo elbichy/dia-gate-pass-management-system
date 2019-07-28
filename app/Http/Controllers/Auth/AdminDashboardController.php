@@ -12,6 +12,7 @@ use Hash;
 use Carbon\Carbon;
 use App\Notifications\GateApproval;
 use App\Notifications\ReceptionApproval;
+use Yajra\Datatables\Datatables;
 
 class AdminDashboardController extends Controller
 {
@@ -32,12 +33,22 @@ class AdminDashboardController extends Controller
     
     
     public function printGateGuestList(){
-        $data = [
-            'allVisitors' => User::with('visitors')->orderBy('id', 'DESC')->paginate(7),
-            'allReceptionVisitors' => User::where(['block' => auth()->user()->block])->with('visitors')->paginate(6)
-        ];
-        // dd($data['allVisitors']);
-        return view('auth.admin.printGuestList')->with('data', $data);
+        return view('auth.admin.printGuestList');
+    }
+    public function getGateGuestList()
+    {
+        $visitors = Visitor::with('user')
+            ->where('status', '>', 0)
+            ->whereDate('verifiedAtGate', '=', Carbon::today()->toDateString())
+            ->get();
+        return Datatables::of($visitors)
+        ->editColumn('created_at', function ($visitor) {
+            return $visitor->created_at->toDayDateTimeString();
+        })
+        ->editColumn('userFullname', function ($visitor) {
+            return $visitor->user->firstname.' '.$visitor->user->lastname;
+        })
+        ->make();
     }
 
     // APPROVE AT GATE
@@ -237,8 +248,6 @@ class AdminDashboardController extends Controller
     }
 
 
-
-
     public function manageGeneralStaff(){
         $data = [
             'allStaffs' => User::orderBy('id', 'DESC')->paginate(7)
@@ -269,7 +278,7 @@ class AdminDashboardController extends Controller
         foreach ($admin->unreadNotifications as $notification) {
             $notification->markAsRead();
         }
-        return  back();
+        return response()->json(['status' => true]);
     }
 
 }

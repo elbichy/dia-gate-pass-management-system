@@ -32,8 +32,8 @@
                 <a href="#!" style="margin-left: 20px;" class="hide-on-med-and-down">Defence Intelligence Agency Gate Pass system</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="dashboard">Home</a></li>
-                    <li><a href="dashboard/myprofile">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
@@ -44,7 +44,7 @@
                     </li>
                 </ul>
                 <ul class="right">
-                    <a href="#" style="margin-right: 14px;" data-target='notifications'  class="dropdown-trigger right hide-on-small-only">
+                    <a href="#" style="margin-right: 14px;" data-target='notifications'  class="personnel-dropdown-trigger right hide-on-small-only">
                         <i style="margin-right: 0px;" class="material-icons left">notifications</i>
                         {!! auth()->user()->unreadNotifications->count() > 0 ? '<sup class="red lighten-2 notificationCount">'.auth()->user()->unreadNotifications->count().'</sup>' : '<sup class="red blue notificationCount">0</sup>' !!}
                     </a>
@@ -62,7 +62,7 @@
                             </li>
                             @endforeach
                         @endforeach
-                        @if (auth()->user()->unreadNotifications->count() > 0)
+                        {{-- @if (auth()->user()->unreadNotifications->count() > 0)
                             <li class="light-blue darken-3">
                                 <a href="{{ route('clearNotification') }}" class="white-text">
                                     <i class="material-icons">clear_all</i>
@@ -71,11 +71,11 @@
                                     </div>
                                 </a>
                             </li>
-                        @endif
+                        @endif --}}
                     </ul>
                 </ul>
                 <ul> {{-- FOR MOBILE --}}
-                    <a  href="#" style="margin-left: 14px;" data-target='notifications'  class="dropdown-trigger left hide-on-med-and-up">
+                    <a  href="#" style="margin-left: 14px;" data-target='notifications'  class="personnel-dropdown-trigger left hide-on-med-and-up">
                         <i style="margin-right: 0px;" class="material-icons left">notifications</i>
                         {!! auth()->user()->unreadNotifications->count() > 0 ? '<sup class="red lighten-2 notificationCount">'.auth()->user()->unreadNotifications->count().'</sup>' : '<sup class="red blue notificationCount">0</sup>' !!}
                     </a>
@@ -83,7 +83,7 @@
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="dashboard/myprofile">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
+            <li><a href="#">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
             <li>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout

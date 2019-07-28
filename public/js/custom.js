@@ -46,7 +46,46 @@ $(document).ready(function() {
     $('.modal').modal({
         dismissible: true
     });
-    $('.dropdown-trigger').dropdown();
+    $('.admin-dropdown-trigger').dropdown({
+        onCloseEnd: function() {
+            axios.get('/admin/clear-notification')
+                .then(function(response) {
+                    if (response.data.status) {
+                        $('.dropdown-content > li').hide(function() {
+                            $('.notificationCount').html(0)
+                            $('.notificationCount').addClass('blue');
+                        });
+                    }
+                })
+                .catch(function(error) {
+                    // handle error
+                    console.log(error);
+                })
+                .finally(function() {
+                    // always executed
+                });
+        }
+    });
+    $('.personnel-dropdown-trigger').dropdown({
+        onCloseEnd: function() {
+            axios.get('/personnel/clear-notification')
+                .then(function(response) {
+                    if (response.data.status) {
+                        $('.dropdown-content > li').hide(function() {
+                            $('.notificationCount').html(0);
+                            $('.notificationCount').addClass('blue');
+                        });
+                    }
+                })
+                .catch(function(error) {
+                    // handle error
+                    console.log(error);
+                })
+                .finally(function() {
+                    // always executed
+                });
+        }
+    });
     $('select').formSelect();
 
     // DELETE MY REQUEST

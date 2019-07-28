@@ -14,14 +14,12 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
-
 Route::get('/admin/dashboard', 'Auth\AdminDashboardController@index')->name('admin.dashboard');
 
 
 
 Route::get('/admin/print-gate-guest-list', 'Auth\AdminDashboardController@printGateGuestList')->name('admin.printGateGuestList');
-
-
+Route::get('/admin/get-gate-guest-list', 'Auth\AdminDashboardController@getGateGuestList')->name('admin.getGateGuestList');
 
 
 

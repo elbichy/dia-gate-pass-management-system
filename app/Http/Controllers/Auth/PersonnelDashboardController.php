@@ -87,12 +87,11 @@ class PersonnelDashboardController extends Controller
 
     // CLEAR NOTIFICATION
     public function clearNotification(){
-
         $user = User::find(auth()->user()->id);
         foreach ($user->unreadNotifications as $notification) {
             $notification->markAsRead();
         }
-        return  back();
+        return response()->json(['status' => true]);
     }
 
 }

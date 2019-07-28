@@ -36,22 +36,17 @@
         </ul>
         <nav>
             <div class="nav-wrapper blue darken-2">
-                <a href="#!" class="hide-on-med-and-down" style="margin-left: 20px;">Defence Intelligence Agency Gate Pass system</a>
+                <a href="#" class="hide-on-med-and-down" style="margin-left: 20px;">Defence Intelligence Agency Gate Pass system</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="dashboard">Home</a></li>
                     @if(auth()->user()->role == 1)
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Manage Staffs<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Manage Staffs<i class="material-icons right">arrow_drop_down</i></a></li>
                     @endif
-
-
                     @if(auth()->user()->role == 2)
-                    <li><a href="/admin/print-gate-guest-list" target="_blank">Print today guests<i class="material-icons right">print</i></a></li>
+                        <li><a href="/admin/print-gate-guest-list" target="_blank">Print today guests<i class="material-icons right">print</i></a></li>
                     @endif
-
-
-
-                    <li><a href="dashboard/myprofile">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
+                    <li><a href="#">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
                     <li>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
@@ -62,7 +57,7 @@
                     </li>
                 </ul>
                 <ul class="right">
-                    <a href="#" style="margin-right: 14px;" data-target='notifications'  class="dropdown-trigger right hide-on-small-only">
+                    <a href="#" style="margin-right: 14px;" data-target='notifications'  class="admin-dropdown-trigger right hide-on-small-only">
                         <i style="margin-right: 0px;" class="material-icons left">notifications</i>
                         {!! auth()->user()->unreadNotifications->count() > 0 ? '<sup class="red lighten-2 notificationCount">'.auth()->user()->unreadNotifications->count().'</sup>' : '<sup class="red blue notificationCount">0</sup>' !!}
                     </a>
@@ -84,16 +79,6 @@
                             </li>
                             @endforeach
                         @endforeach
-                        @if (auth()->user()->unreadNotifications->count() > 0)
-                            <li class="light-blue darken-3">
-                                <a href="{{ route('clearAdminNotification') }}" class="white-text">
-                                    <i class="material-icons">clear_all</i>
-                                    <div class='notMsg'>
-                                        <sub class="white-text">Clear all</sub>
-                                    </div>
-                                </a>
-                            </li>
-                        @endif
                     </ul>
                 </ul>
                 {{-- <ul> 
@@ -105,9 +90,9 @@
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="dashboard/myprofile">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
+            <li><a href="#">{{auth()->user()->firstname.' '.auth()->user()->lastname}}</a></li>
             @if(auth()->user()->role == 1)
-                <li><a class="dropdown-trigger hide-on-med-and-up" href="#!" data-target="dropdown2">Manage Staffs<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger hide-on-med-and-up" href="#" data-target="dropdown2">Manage Staffs<i class="material-icons right">arrow_drop_down</i></a></li>
             @endif
             <li>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

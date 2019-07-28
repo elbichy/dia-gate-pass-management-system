@@ -112,7 +112,6 @@
                         <th>Gender</th>
                         <th>Date</th>
                         <th>Status</th>
-                        <th></th>
                     </tr>
                 </thead>
         
@@ -130,13 +129,12 @@
                                 {!! $visitor->status == 2 ? '<span class="green-text">Cleared!</span>' : '' !!}
                                 {!! $visitor->status == 3 ? '<span class="red-text">Declined</span>' : '' !!}
                             </td>
-                            <td><a class="white-text btn green">View</a></td>
                         </tr>
                         @endif
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="6" style="padding:10px 0;">No request  at all</td>
+                        <td colspan="5" style="padding:10px 0;">No request  at all</td>
                     </tr>
                 @endif
                 </tbody>
