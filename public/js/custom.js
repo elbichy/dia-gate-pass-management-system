@@ -33,7 +33,7 @@ $(document).ready(function() {
         if (requestHistoryRows.rows.length == 0) {
             requestHistoryRows.innerHTML = `
                 <tr style="padding:14px 0;">
-                    <td colspan="2">No records available<td>
+                    <td colspan="4">No records available<td>
                 </tr>
             `;
         }
@@ -46,12 +46,14 @@ $(document).ready(function() {
     $('.modal').modal({
         dismissible: true
     });
+
+    $('.dropdown-trigger').dropdown();
     $('.admin-dropdown-trigger').dropdown({
         onCloseEnd: function() {
             axios.get('/admin/clear-notification')
                 .then(function(response) {
                     if (response.data.status) {
-                        $('.dropdown-content > li').hide(function() {
+                        $('.admin-notifications > li').hide(function() {
                             $('.notificationCount').html(0)
                             $('.notificationCount').addClass('blue');
                         });
@@ -71,7 +73,7 @@ $(document).ready(function() {
             axios.get('/personnel/clear-notification')
                 .then(function(response) {
                     if (response.data.status) {
-                        $('.dropdown-content > li').hide(function() {
+                        $('.staff-notifications > li').hide(function() {
                             $('.notificationCount').html(0);
                             $('.notificationCount').addClass('blue');
                         });
@@ -145,60 +147,38 @@ $(document).ready(function() {
         `;
     });
 
-    $('#loginForm').submit(function(event) {
-        // event.preventDefault();
-
-        $('.btn_login').html(`
-            <div class="preloader-wrapper small active">
-                <div class="spinner-layer spinner-blue-only">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                    <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-                </div>
-            </div>
-        `);
-        $('.btn_login').css('border', 'none');
-        $('.btn_login').css('background', 'transparent');
-        $('.btn_login:focus').css('background', 'transparent');
-        $('.btn_login').removeClass('btn waves-effect waves-light green darken-2');
-    });
-
     $('#newVisitorForm').submit(function(event) {
         // event.preventDefault();
-
-        $('.newVisitorSubmit').html(`
-            <div class="preloader-wrapper small active">
-                <div class="spinner-layer spinner-blue-only">
-                <div class="circle-clipper left">
-                    <div class="circle"></div>
-                </div><div class="gap-patch">
-                    <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                </div>
-                </div>
-            </div>
-        `);
-        $('.newVisitorSubmit').css('border', 'none');
-        $('.newVisitorSubmit').css('background', 'transparent');
-        $('.newVisitorSubmit').css('margin-top', '6px');
-        $('.newVisitorSubmit:focus').css('background', 'transparent');
-        $('.newVisitorSubmit').removeClass('btn waves-effect waves-light green darken-2');
-        $('.newVisitorSubmit').siblings('button').remove();
+        $('.newVisitorSubmit').prop('disabled', true);
+        $('.newVisitorSubmit').siblings('button').prop('disabled', true);
+        $(this).siblings('.progress').show('fade');
     });
-
-
-
-
-
-
 });
-// GET COORDINATES
-// chrome --unsafely-treat-insecure-origin-as-secure="http://bitssolutions.test"  --user-data-dir=C:\testprofile
+
+// ANIMALE LOGIN/REG BUTTON
+function submitForm(e) {
+    // e.preventDefault();
+
+    $('.btn_login, .btn_login:focus').css({
+        'background': 'transparent',
+        'border': 'none'
+    });
+    $('.btn_login').removeClass('btn');
+    $('.btn_login').html(`
+        <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    `);
+}
+
 
 // LOAD NOTIFICATION ASYNC
 function loadNotification(base_url) {

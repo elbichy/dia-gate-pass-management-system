@@ -8,11 +8,16 @@
       <div class="box">
         <div class="z-depth-1 grey lighten-4 formWrap">
           
-          <form class="col s12" method="POST" action="{{ route('adminLogin') }}" id="loginForm ">
+          <form class="col s12" method="POST" action="{{ route('adminLogin') }}" id="regForm" onsubmit="submitForm(event)">
             @csrf
             <h6 class="blue darken-2 white-text">Admin staff login</h6>
 
             <div class='row'>
+                @if ($errors->login->has('details'))
+                    <span class="helper-text red-text">
+                        <strong>{{ $errors->login->first('details') }}</strong>
+                    </span>
+                @endif
               <div class='input-field col s12'>
                 <i class="material-icons prefix">account_circle</i>
                 <input class='validate' type='text' name='email' id='email' />
@@ -33,25 +38,27 @@
                 @endif
                 <label for='password'>Enter password</label>
               </div>
-            </div>
-            <div class="row">
-              <label style='float: right;'>
-                <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
-              </label>
-              <p>
-                <label>
-                  <input name="remember" type="checkbox" />
-                  <span>Remember Me?</span>
-                </label>
-              </p>
+              <div class='input-field col s12' style="margin: 0;">
+                  <p>
+                    <label>
+                      <input type="checkbox" name="remember" class="filled-in" />
+                      <span>Remember Me?</span>
+                    </label>
+                  </p>
+              </div>
             </div>
             <div class='row'>
-              <button type='submit' name='btn_login' class='btn_login col s12 btn waves-effect waves-light green darken-2'>Login</button>
+                <button type='submit' name='btn_login' class='btn_login col s12 btn'>
+                    Login<i class="material-icons" style="margin-left:4px;">lock_open</i>
+                </button>
             </div>
           </form>
 
         </div>
       </div>
-      <a href="{{route('login')}}" class="btn blue waves-effect waves-light darken-2">Login as staff</a>
+      <div class="links row">
+          <a href="{{  route('login') }}" class="col s6 skyblue-text">Login as Staff</a>
+          <a class='col s6  skyblue-text' href='#!'>Forgot Password?</a>
+      </div>
   </main>
 @endsection

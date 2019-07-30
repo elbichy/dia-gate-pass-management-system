@@ -49,7 +49,7 @@
                         {!! auth()->user()->unreadNotifications->count() > 0 ? '<sup class="red lighten-2 notificationCount">'.auth()->user()->unreadNotifications->count().'</sup>' : '<sup class="red blue notificationCount">0</sup>' !!}
                     </a>
                     <!-- Dropdown Structure -->
-                    <ul id='notifications' class='dropdown-content' style="z-index: -100;">
+                    <ul id='notifications' class='dropdown-content staff-notifications' style="z-index: -100;">
                         @foreach(auth()->user()->unreadNotifications as $notificationCollection)
                             @foreach($notificationCollection->data as $notificationItem)
                             <li class="light-blue darken-2">
@@ -62,16 +62,6 @@
                             </li>
                             @endforeach
                         @endforeach
-                        {{-- @if (auth()->user()->unreadNotifications->count() > 0)
-                            <li class="light-blue darken-3">
-                                <a href="{{ route('clearNotification') }}" class="white-text">
-                                    <i class="material-icons">clear_all</i>
-                                    <div class='notMsg'>
-                                        <sub class="white-text">Clear all</sub>
-                                    </div>
-                                </a>
-                            </li>
-                        @endif --}}
                     </ul>
                 </ul>
                 <ul> {{-- FOR MOBILE --}}

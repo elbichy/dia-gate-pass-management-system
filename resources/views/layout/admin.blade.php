@@ -26,14 +26,6 @@
 </head>
 <body>
     <div class="navbar-fixed">
-        <ul id="dropdown1" class="dropdown-content">
-            <li><a href="{{route('manageGateReceptionStaff')}}" class="blue-text">Admin Staff</a></li>
-            <li><a href="{{route('manageGeneralStaff')}}" class="blue-text">General Staff</a></li>
-        </ul>
-        <ul id="dropdown2" class="dropdown-content">
-            <li><a href="{{route('manageGateReceptionStaff')}}" class="blue-text">Admin Staff</a></li>
-            <li><a href="{{route('manageGeneralStaff')}}" class="blue-text">General Staff</a></li>
-        </ul>
         <nav>
             <div class="nav-wrapper blue darken-2">
                 <a href="#" class="hide-on-med-and-down" style="margin-left: 20px;">Defence Intelligence Agency Gate Pass system</a>
@@ -41,7 +33,16 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="dashboard">Home</a></li>
                     @if(auth()->user()->role == 1)
-                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Manage Staffs<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li>
+                        <!-- Menu Dropdown Structure -->
+                        <a class="dropdown-trigger" href="#!" data-target="manageStaffs">
+                            Manage Staffs<i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                        <ul id="manageStaffs" class="dropdown-content manageStaffs">
+                            <li><a href="{{route('manageGateReceptionStaff')}}" class="blue-text">Admin Staff</a></li>
+                            <li><a href="{{route('manageGeneralStaff')}}" class="blue-text">General Staff</a></li>
+                        </ul>
+                    </li>
                     @endif
                     @if(auth()->user()->role == 2)
                         <li><a href="/admin/print-gate-guest-list" target="_blank">Print today guests<i class="material-icons right">print</i></a></li>
@@ -61,8 +62,8 @@
                         <i style="margin-right: 0px;" class="material-icons left">notifications</i>
                         {!! auth()->user()->unreadNotifications->count() > 0 ? '<sup class="red lighten-2 notificationCount">'.auth()->user()->unreadNotifications->count().'</sup>' : '<sup class="red blue notificationCount">0</sup>' !!}
                     </a>
-                    <!-- Dropdown Structure -->
-                    <ul id='notifications' class='dropdown-content'>
+                     <!-- Notifications Dropdown Structure -->
+                    <ul id='notifications' class='dropdown-content admin-notifications'>
                         @foreach(auth()->user()->unreadNotifications as $notificationCollection)
                             @foreach($notificationCollection->data as $notificationItem)
                             <li class="light-blue darken-2">
@@ -104,6 +105,18 @@
             </li>
         </ul>
     </div>
+    {{-- LOGIN ERR --}}
+    @if ($errors->login->has('details'))
+        <script>
+            $(document).ready(function () {
+                    $.wnoty({
+                    type: 'error',
+                    message: '{{ $errors->login->first('details') }}',
+                    autohideDelay: 10000
+                    });
+                });
+        </script>
+    @endif
     @if (session()->has('accessError'))
         <script>
         $(document).ready(function () {

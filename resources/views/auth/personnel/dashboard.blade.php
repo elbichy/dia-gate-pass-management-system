@@ -4,6 +4,10 @@
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal modal-fixed-footer">
+
+    <div class="progress">
+        <div class="indeterminate"></div>
+    </div>
     <form action="{{route('submitRequest')}}" method="post" id="newVisitorForm">
         @csrf
         <div class="modal-content" style="margin-top:0px;">
@@ -57,16 +61,16 @@
 
         <h5 class="col s12 center white-text" style="margin:0">Staff Dashboard</h5>
         <div class="expected col s12 m6 l6">
-            <table class="striped highlight centered z-depth-2">
+            <table class="highlight centered z-depth-2">
                 <thead>
                     <tr>
                         <h6 style="text-align:center; color:white;">My Guest Request Today</h6>
                     </tr>
-                    <tr class="blue-text" style="border-bottom:4px solid #2196f3">
+                    <tr class="blue-text">
                         <th>Full Name</th>
                         <th>Gender</th>
                         <th>Status</th>
-                        <th></th>
+                        <th>Action</th>
                     </tr>
                 </thead>
         
@@ -86,7 +90,7 @@
                                 <td><a href="#" data-requestid="{{$visitor->id}}" class="deleteRequest btn btn-small waves-effect waves-light red">Delete</a></td>
                                 <form action="{{url('personnel/deleteRequest')}}" method="post" name="deleteRequestForm" id="deleteRequestForm">
                                     @method('delete')
-                                    <input type="hidden" name="deleterequestid" id="deleterequestid">
+                                        <input type="hidden" name="deleterequestid" id="deleterequestid">
                                     @csrf
                                 </form>
                             </tr>
@@ -94,20 +98,19 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="6" style="padding:10px 0;">No request today</td>
+                        <td colspan="4" style="padding:10px 0;">No request today</td>
                     </tr>
                 @endif
                 </tbody>
             </table>
-            {{$data['todaysVisitors']->links('vendor.pagination.materializecss')}}
         </div>
         <div class="authenticated col s12 m6 l6">
-            <table class="striped highlight centered z-depth-2">
+            <table class="highlight centered z-depth-2">
                 <thead>
                     <tr>
                         <h6 style="text-align:center; color:white;">My Requests History</h6>
                     </tr>
-                    <tr class="blue-text" style="border-bottom:4px solid #2196f3">
+                    <tr class="blue-text">
                         <th>Fullname</th>
                         <th>Gender</th>
                         <th>Date</th>
@@ -120,9 +123,9 @@
                     @foreach($data['allVisitors'] as $visitor)
                         @if($visitor->status > 1)
                         <tr>
-                            <td>{{$visitor->fullname}}</td>
-                            <td>{{$visitor->gender}}</td>
-                            <td>{{$visitor->created_at->format('d/m/Y')}}</td>
+                            <td>{{  $visitor->fullname }}</td>
+                            <td>{{  $visitor->gender }}</td>
+                            <td>{{  \Carbon\Carbon::parse($visitor->verifiedAtGate)->diffForHumans() }}</td>
                             <td>
                                 {!! $visitor->status == 0 ? '<span class="orange-text">Pending</span>' : '' !!}
                                 {!! $visitor->status == 1 ? '<span class="orange-text">Cleared @ Gate</span>' : '' !!}
@@ -134,7 +137,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td colspan="5" style="padding:10px 0;">No request  at all</td>
+                        <td colspan="4" style="padding:10px 0;">No request  at all</td>
                     </tr>
                 @endif
                 </tbody>

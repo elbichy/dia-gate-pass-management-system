@@ -16,13 +16,13 @@
     <div class="dashboardWrap row">
         <div class="admins">
             <h5 class="col s12 center white-text" style="margin:0">Gate Staff</h5>
-            <div class="expected col s12 m8 l8">
-                <table class="striped highlight centered  z-depth-2">
+            <div class="expected col s12 m7 l7">
+                <table class="highlight centered  z-depth-2">
                     <thead>
                         <tr>
                             <h6 style="text-align:center; color:white;">Expected Guests Today</h6>
                         </tr>
-                        <tr class="blue-text" style="border-bottom:4px solid #2196f3">
+                        <tr class="blue-text">
                             <th>Staff</th>
                             <th>Building</th>
                             <th>Guest</th>
@@ -61,40 +61,42 @@
                     </tbody>
                 </table>
             </div>
-            <div class="authenticated col s12 m4 l4">
-                    <table class="striped highlight centered  z-depth-2">
-                        <thead>
-                            <tr>
-                                <h6 style="text-align:center; color:white;">Screened Guests Today</h6>
-                            </tr>
-                            <tr class="blue-text" style="border-bottom:4px solid #2196f3">
-                                <th>Personnel</th>
-                                <th>Guest</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="requestsApprovalHistory">
-                            @foreach($data['allVisitors'] as $visitors)
-                                @foreach($visitors->visitors as $visitor)
-                                    @if($visitor->status > 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
-                                    <tr>
-                                        <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
-                                        <td>{{$visitor->fullname}}</td>
-                                        <td>
-                                            @if($visitor->status == 1)
-                                                <span class="orange-text">Cleared @ Gate</span>
-                                            @elseif($visitor->status == 2)
-                                                <span class="green-text">Cleared!</span>
-                                            @elseif($visitor->status == 3)
-                                                <span class="red-text">Declined</span>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    @endif
-                                @endforeach
+            <div class="authenticated col s12 m5 l5">
+                <table class="highlight centered  z-depth-2">
+                    <thead>
+                        <tr>
+                            <h6 style="text-align:center; color:white;">Screened Guests Today</h6>
+                        </tr>
+                        <tr class="blue-text">
+                            <th>Personnel</th>
+                            <th>Guest</th>
+                            <th>Status</th>
+                            <th>Date/Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="requestsApprovalHistory">
+                        @foreach($data['allVisitors'] as $visitors)
+                            @foreach($visitors->visitors as $visitor)
+                                @if($visitor->status > 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
+                                <tr>
+                                    <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
+                                    <td>{{$visitor->fullname}}</td>
+                                    <td>
+                                        @if($visitor->status == 1)
+                                            <span class="orange-text">Cleared @ Gate</span>
+                                        @elseif($visitor->status == 2)
+                                            <span class="green-text">Cleared!</span>
+                                        @elseif($visitor->status == 3)
+                                            <span class="red-text">Declined</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ \Carbon\Carbon::parse($visitor->created_at)->diffForHumans() }}</td>
+                                </tr>
+                                @endif
                             @endforeach
-                        </tbody>
-                    </table>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -112,7 +114,7 @@
                         <tr>
                             <h6 style="text-align:center; color:white;">Expected Guests Today</h6>
                         </tr>
-                        <tr class="blue-text" style="border-bottom:4px solid #2196f3">
+                        <tr class="blue-text">
                             <th>Staff</th>
                             <th>Building</th>
                             <th>Guest</th>
@@ -157,7 +159,7 @@
                             <tr>
                                 <h6 style="text-align:center; color:white;">Screened Guests Today</h6>
                             </tr>
-                            <tr class="blue-text" style="border-bottom:4px solid #2196f3">
+                            <tr class="blue-text">
                                 <th>Personnel</th>
                                 <th>Guest</th>
                                 <th>Status</th>

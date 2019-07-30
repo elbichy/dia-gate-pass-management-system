@@ -8,9 +8,9 @@
       <div class="box">
         <div class="z-depth-1 grey lighten-4 formWrap">
           
-          <form class="col s12" method="POST" action="{{ route('login') }}" id="loginForm">
+          <form class="col s12" method="POST" action="{{ route('login') }}" id="loginForm" onsubmit="submitForm(event)">
             @csrf
-            <h6 class="blue darken-2 white-text">General staff login</h6>
+            <h6 class="white-text">General staff login</h6>
 
             <div class='row'>
               <div class='input-field col s12'>
@@ -33,25 +33,27 @@
                 @endif
                 <label for='password'>Enter password</label>
               </div>
-            </div>
-            <div class="row">
-              <label style='float: right;'>
-                <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
-              </label>
-              <p>
-                <label>
-                  <input type="checkbox" name="remember" />
-                  <span>Remember Me?</span>
-                </label>
-              </p>
+              <div class='input-field col s12' style="margin: 0;">
+                <p>
+                  <label>
+                    <input type="checkbox" name="remember" class="filled-in" />
+                    <span>Remember Me?</span>
+                  </label>
+                </p>
+              </div>
             </div>
             <div class='row'>
-              <button type='submit' name='btn_login' class='btn_login col s12 btn waves-effect waves-light green darken-2'>Login</button>
+              <button type='submit' name='btn_login' class='btn_login col s12 btn'>
+                  Login<i class="material-icons" style="margin-left:4px;">lock_open</i>
+              </button>
             </div>
           </form>
 
         </div>
       </div>
-      <a href="{{route('showAdminLoginForm')}}" class="btn blue waves-effect waves-light darken-2">Login as Admin</a>
+      <div class="links row">
+          <a href="{{route('showAdminLoginForm')}}" class="col s6 skyblue-text">Login as Admin</a>
+          <a class='col s6  skyblue-text' href='#!'>Forgot Password?</a>
+      </div>
   </main>
 @endsection

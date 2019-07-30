@@ -48,10 +48,33 @@ body {
                         }
                     }
                 }
+                #manageStaffs {
+                    width: auto !important;
+                    min-width: 162.969px!important;
+                    max-width: 250px;
+                    top: 64px !important;
+                }
             }
         }
     }
     .modal {
+        .progress {
+            display: none;
+            height: 10px!important;
+            background-color: #6ebbfa!important;
+            border-radius: 0!important;
+            border-top-right-radius: 2px;
+            border-top-left-radius: 2px;
+            margin: 0!important;
+            .indeterminate {
+                &::before {
+                    background-color: #2368a0!important;
+                }
+                &::after {
+                    background-color: #2368a0!important;
+                }
+            }
+        }
         .modal-content {
             margin-top: 40px;
             &:last-child {
@@ -92,17 +115,21 @@ body {
         background: rgba(0, 0, 0, 0.6);
         padding: 10px 0;
         .box {
-            margin: 10px 0;
+            margin: 10px 0 0;
             max-width: 400px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
             .formWrap {
                 display: inline-block;
                 padding: 0;
                 // border: 1px solid #EEE;
                 background: rgba(255, 255, 255, 0.8)!important;
                 border-radius: 10px;
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
                 form {
                     h6 {
-                        // background: rgb(30, 110, 201);
+                        background: linear-gradient(to right, #0e607e, #019BD4);
                         margin-top: 0px;
                         border-top-left-radius: 9px;
                         border-top-right-radius: 9px;
@@ -111,7 +138,39 @@ body {
                     }
                     .row {
                         margin: 20px 40px;
+                        .btn_login {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: #388E3C;
+                        }
                     }
+                }
+            }
+        }
+        .links {
+            width: 400px!important;
+            margin: 0 !important;
+            padding: 0px;
+            height: 50px;
+            background: #1976D2;
+            background: linear-gradient(to right, #0e607e, #019BD4);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            display: flex;
+            justify-content: stretch;
+            align-items: stretch;
+            a {
+                padding: 0!important;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                &:first-of-type {
+                    text-align: left!important;
+                }
+                &:hover {
+                    background: rgba(0, 0, 0, 0.2);
                 }
             }
         }
@@ -214,13 +273,7 @@ body {
                     max-height: 450px;
                     tbody {
                         tr {
-                            td {
-                                &:last-child {
-                                    // border: 2px solid red;
-                                    padding: 0;
-                                    width: 80px;
-                                }
-                            }
+                            td {}
                         }
                     }
                 }
@@ -232,13 +285,7 @@ body {
                     background: #fff;
                     tbody {
                         tr {
-                            td {
-                                &:last-child {
-                                    // border: 2px solid red;
-                                    padding: 0;
-                                    width: 80px;
-                                }
-                            }
+                            td {}
                         }
                     }
                 }
@@ -261,13 +308,7 @@ body {
                     max-height: 450px;
                     tbody {
                         tr {
-                            td {
-                                &:last-child {
-                                    // border: 2px solid red;
-                                    padding: 0;
-                                    width: 80px;
-                                }
-                            }
+                            td {}
                         }
                     }
                 }
@@ -285,13 +326,7 @@ body {
                     background: #fff;
                     tbody {
                         tr {
-                            td {
-                                &:last-child {
-                                    // border: 2px solid red;
-                                    padding: 0;
-                                    width: 80px;
-                                }
-                            }
+                            td {}
                         }
                     }
                 }
@@ -491,6 +526,7 @@ body {
     }
 }
 
+//////////////////////////// MEDIA QUERY FOR SMALL SCREEN GOES HERE ///////////////////////////////////
 @media only screen and (max-width: 600px) {
     body {
         background-repeat: no-repeat;
@@ -539,6 +575,7 @@ body {
             }
         }
         main {
+            background: rgba(0, 0, 0, 0.7);
             .homeHeader {
                 font-size: 20px;
             }
@@ -552,7 +589,8 @@ body {
                     display: inline-block;
                     padding: 0;
                     // border: 1px solid #EEE;
-                    background: rgba(255, 255, 255, 0.8)!important;
+                    background: transparent!important;
+                    box-shadow: none!important;
                     border-radius: 0px;
                     form {
                         h6 {
@@ -563,7 +601,77 @@ body {
                         }
                         .row {
                             margin: 20px 40px;
+                            .helper-text {
+                                color: rgb(247, 255, 129)!important;
+                                margin-left: 0!important;
+                            }
+                            .input-field {
+                                width: 100%!important;
+                                padding: 0!important;
+                                i {
+                                    display: none;
+                                }
+                                input {
+                                    margin-left: 0!important;
+                                    width: 100%!important;
+                                    border-bottom: 1px solid rgba(255, 255, 255, 1)!important;
+                                    color: rgba(255, 255, 255, 1)!important;
+                                }
+                                label {
+                                    margin-left: 0!important;
+                                    color: rgba(255, 255, 255, 1)!important;
+                                }
+                                p {
+                                    margin: 0!important;
+                                    label {
+                                        span {
+                                            font-size: 1rem!important;
+                                            color: #fff!important;
+                                        }
+                                    }
+                                }
+                                [type="checkbox"].filled-in:not(:checked)+span:not(.lever)::after {
+                                    height: 20px;
+                                    width: 20px;
+                                    background-color: transparent;
+                                    border: 2px solid #fff!important;
+                                    top: 0px;
+                                    z-index: 0;
+                                }
+                                [type="checkbox"].filled-in:checked+span:not(.lever)::after {
+                                    top: 0;
+                                    width: 20px;
+                                    height: 20px;
+                                    border: 2px solid #1976d2;
+                                    background-color: #1976d2;
+                                    z-index: 0;
+                                }
+                            }
+                            .btn_login {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                background: #fff;
+                                // border: 2px solid #fff;
+                                box-shadow: none;
+                                color: #0e607e;
+                                .spinner-blue-only {
+                                    border-color: #fff!important;
+                                }
+                            }
                         }
+                    }
+                }
+            }
+            .links {
+                width: 80%!important;
+                margin: 0!important;
+                background: transparent;
+                a {
+                    text-align: right!important;
+                    padding: 0!important;
+                    &:first-of-type {
+                        text-align: left!important;
                     }
                 }
             }
@@ -611,12 +719,12 @@ body {
                         tbody {
                             tr {
                                 td {
-                                    &:last-child {
-                                        // border: 2px solid red;
-                                        padding: 0;
-                                        width: 80px;
-                                        padding: 20px 0;
-                                    }
+                                    // &:last-child {
+                                    //     // border: 2px solid red;
+                                    //     padding: 0;
+                                    //     width: 80px;
+                                    //     padding: 20px 0;
+                                    // }
                                 }
                             }
                         }
@@ -631,11 +739,11 @@ body {
                         tbody {
                             tr {
                                 td {
-                                    &:last-child {
-                                        // border: 2px solid red;
-                                        padding: 20px 0;
-                                        width: 80px;
-                                    }
+                                    // &:last-child {
+                                    //     // border: 2px solid red;
+                                    //     padding: 20px 0;
+                                    //     width: 80px;
+                                    // }
                                 }
                             }
                         }
@@ -652,12 +760,12 @@ body {
                         tbody {
                             tr {
                                 td {
-                                    &:last-child {
-                                        // border: 2px solid red;
-                                        padding: 0;
-                                        width: 80px;
-                                        padding: 20px 0;
-                                    }
+                                    // &:last-child {
+                                    //     // border: 2px solid red;
+                                    //     padding: 0;
+                                    //     width: 80px;
+                                    //     padding: 20px 0;
+                                    // }
                                     a {
                                         padding: 6px 4px!important;
                                         height: auto!important;
@@ -685,11 +793,11 @@ body {
                         tbody {
                             tr {
                                 td {
-                                    &:last-child {
-                                        // border: 2px solid red;
-                                        padding: 20px 0;
-                                        width: 80px;
-                                    }
+                                    // &:last-child {
+                                    //     // border: 2px solid red;
+                                    //     padding: 20px 0;
+                                    //     width: 80px;
+                                    // }
                                     a {
                                         padding: 6px 4px!important;
                                         height: auto!important;

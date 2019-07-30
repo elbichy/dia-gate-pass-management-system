@@ -42,6 +42,31 @@ body nav .nav-wrapper ul #notifications li a .notMsg sub {
   color: #666;
 }
 
+body nav .nav-wrapper ul #manageStaffs {
+  width: auto !important;
+  min-width: 162.969px !important;
+  max-width: 250px;
+  top: 64px !important;
+}
+
+body .modal .progress {
+  display: none;
+  height: 10px !important;
+  background-color: #6ebbfa !important;
+  border-radius: 0 !important;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  margin: 0 !important;
+}
+
+body .modal .progress .indeterminate::before {
+  background-color: #2368a0 !important;
+}
+
+body .modal .progress .indeterminate::after {
+  background-color: #2368a0 !important;
+}
+
 body .modal .modal-content {
   margin-top: 40px;
 }
@@ -91,8 +116,10 @@ body main {
 }
 
 body main .box {
-  margin: 10px 0;
+  margin: 10px 0 0;
   max-width: 400px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 body main .box .formWrap {
@@ -100,9 +127,12 @@ body main .box .formWrap {
   padding: 0;
   background: rgba(255, 255, 255, 0.8) !important;
   border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 body main .box .formWrap form h6 {
+  background: linear-gradient(to right, #0e607e, #019BD4);
   margin-top: 0px;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
@@ -112,6 +142,43 @@ body main .box .formWrap form h6 {
 
 body main .box .formWrap form .row {
   margin: 20px 40px;
+}
+
+body main .box .formWrap form .row .btn_login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #388E3C;
+}
+
+body main .links {
+  width: 400px !important;
+  margin: 0 !important;
+  padding: 0px;
+  height: 50px;
+  background: #1976D2;
+  background: linear-gradient(to right, #0e607e, #019BD4);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+body main .links a {
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+body main .links a:first-of-type {
+  text-align: left !important;
+}
+
+body main .links a:hover {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 body main .homMenuContainer {
@@ -218,11 +285,6 @@ body .dashboardWrap .admins .expected table {
   max-height: 450px;
 }
 
-body .dashboardWrap .admins .expected table tbody tr td:last-child {
-  padding: 0;
-  width: 80px;
-}
-
 body .dashboardWrap .admins .authenticated {
   padding: 10px;
 }
@@ -230,11 +292,6 @@ body .dashboardWrap .admins .authenticated {
 body .dashboardWrap .admins .authenticated table {
   max-height: 450px;
   background: #fff;
-}
-
-body .dashboardWrap .admins .authenticated table tbody tr td:last-child {
-  padding: 0;
-  width: 80px;
 }
 
 body .dashboardWrap .personnel {
@@ -258,11 +315,6 @@ body .dashboardWrap .personnel .expected table {
   max-height: 450px;
 }
 
-body .dashboardWrap .personnel .expected table tbody tr td:last-child {
-  padding: 0;
-  width: 80px;
-}
-
 body .dashboardWrap .personnel .expected ul {
   background: #fff;
   margin: 0;
@@ -277,11 +329,6 @@ body .dashboardWrap .personnel .authenticated {
 body .dashboardWrap .personnel .authenticated table {
   max-height: 450px;
   background: #fff;
-}
-
-body .dashboardWrap .personnel .authenticated table tbody tr td:last-child {
-  padding: 0;
-  width: 80px;
 }
 
 body .dashboardWrap .personnel .authenticated ul {
@@ -509,6 +556,10 @@ body .fullWrapper .sectionTableWrap .dataTables_wrapper #users-table_paginate .d
     color: #666;
   }
 
+  body main {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
   body main .homeHeader {
     font-size: 20px;
   }
@@ -525,7 +576,8 @@ body .fullWrapper .sectionTableWrap .dataTables_wrapper #users-table_paginate .d
   body main .box .formWrap {
     display: inline-block;
     padding: 0;
-    background: rgba(255, 255, 255, 0.8) !important;
+    background: transparent !important;
+    box-shadow: none !important;
     border-radius: 0px;
   }
 
@@ -538,6 +590,87 @@ body .fullWrapper .sectionTableWrap .dataTables_wrapper #users-table_paginate .d
 
   body main .box .formWrap form .row {
     margin: 20px 40px;
+  }
+
+  body main .box .formWrap form .row .helper-text {
+    color: #f7ff81 !important;
+    margin-left: 0 !important;
+  }
+
+  body main .box .formWrap form .row .input-field {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  body main .box .formWrap form .row .input-field i {
+    display: none;
+  }
+
+  body main .box .formWrap form .row .input-field input {
+    margin-left: 0 !important;
+    width: 100% !important;
+    border-bottom: 1px solid white !important;
+    color: white !important;
+  }
+
+  body main .box .formWrap form .row .input-field label {
+    margin-left: 0 !important;
+    color: white !important;
+  }
+
+  body main .box .formWrap form .row .input-field p {
+    margin: 0 !important;
+  }
+
+  body main .box .formWrap form .row .input-field p label span {
+    font-size: 1rem !important;
+    color: #fff !important;
+  }
+
+  body main .box .formWrap form .row .input-field [type=checkbox].filled-in:not(:checked) + span:not(.lever)::after {
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 2px solid #fff !important;
+    top: 0px;
+    z-index: 0;
+  }
+
+  body main .box .formWrap form .row .input-field [type=checkbox].filled-in:checked + span:not(.lever)::after {
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #1976d2;
+    background-color: #1976d2;
+    z-index: 0;
+  }
+
+  body main .box .formWrap form .row .btn_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    box-shadow: none;
+    color: #0e607e;
+  }
+
+  body main .box .formWrap form .row .btn_login .spinner-blue-only {
+    border-color: #fff !important;
+  }
+
+  body main .links {
+    width: 80% !important;
+    margin: 0 !important;
+    background: transparent;
+  }
+
+  body main .links a {
+    text-align: right !important;
+    padding: 0 !important;
+  }
+
+  body main .links a:first-of-type {
+    text-align: left !important;
   }
 
   body main .homMenuContainer {
@@ -590,12 +723,6 @@ body .fullWrapper .sectionTableWrap .dataTables_wrapper #users-table_paginate .d
     height: 100% !important;
   }
 
-  body .dashboardWrap .admins .expected table tbody tr td:last-child {
-    padding: 0;
-    width: 80px;
-    padding: 20px 0;
-  }
-
   body .dashboardWrap .admins .authenticated {
     padding: 10px;
   }
@@ -606,11 +733,6 @@ body .fullWrapper .sectionTableWrap .dataTables_wrapper #users-table_paginate .d
     height: 100% !important;
   }
 
-  body .dashboardWrap .admins .authenticated table tbody tr td:last-child {
-    padding: 20px 0;
-    width: 80px;
-  }
-
   body .dashboardWrap .personnel .expected {
     padding: 10px;
   }
@@ -619,12 +741,6 @@ body .fullWrapper .sectionTableWrap .dataTables_wrapper #users-table_paginate .d
     background: #fff;
     max-height: 1000px !important;
     height: 100% !important;
-  }
-
-  body .dashboardWrap .personnel .expected table tbody tr td:last-child {
-    padding: 0;
-    width: 80px;
-    padding: 20px 0;
   }
 
   body .dashboardWrap .personnel .expected table tbody tr td a {
@@ -650,11 +766,6 @@ body .fullWrapper .sectionTableWrap .dataTables_wrapper #users-table_paginate .d
     max-height: 1000px !important;
     background: #fff;
     height: 100% !important;
-  }
-
-  body .dashboardWrap .personnel .authenticated table tbody tr td:last-child {
-    padding: 20px 0;
-    width: 80px;
   }
 
   body .dashboardWrap .personnel .authenticated table tbody tr td a {

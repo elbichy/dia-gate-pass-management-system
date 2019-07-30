@@ -21,9 +21,9 @@ class PersonnelDashboardController extends Controller
     public function index(){
 
         $data = [
-            'allVisitors' => $visitors = Visitor::where('user_id', auth()->user()->id)->paginate(6),
-            'todaysVisitors' => $visitors = Visitor::where('user_id', auth()->user()->id)
-                                ->whereDate('created_at', Carbon::today())->paginate(6)
+            'allVisitors' => Visitor::where('user_id', auth()->user()->id)->paginate(10),
+            'todaysVisitors' => Visitor::where('user_id', auth()->user()->id)
+                                ->whereDate('created_at', Carbon::today())->get()
         ];
         
         // return $visitors;
