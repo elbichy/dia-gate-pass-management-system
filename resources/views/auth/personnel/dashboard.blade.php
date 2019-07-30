@@ -113,7 +113,7 @@
                     <tr class="blue-text">
                         <th>Fullname</th>
                         <th>Gender</th>
-                        <th>Date</th>
+                        <th>Time</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -142,7 +142,7 @@
                 @endif
                 </tbody>
             </table>
-            {{$data['allVisitors']->links('vendor.pagination.materializecss')}}
+            {{ $data['allVisitors']->links('vendor.pagination.materializecss') }}
         </div>
     </div>
 </div>

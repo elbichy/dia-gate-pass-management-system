@@ -16,6 +16,7 @@ class AdminsTableSeeder extends Seeder
             [
                 'firstname' => 'Suleiman',
                 'lastname' => 'Abdulrazaq',
+                'username' => 'sman',
                 'email' => 'sman@gmail.com',
                 'password' => Hash::make('12345678'),
                 'gender' => 'male',
@@ -26,6 +27,7 @@ class AdminsTableSeeder extends Seeder
             [
                 'firstname' => 'Usman',
                 'lastname' => 'Shuaib',
+                'username' => 'usman',
                 'email' => 'usman@gmail.com',
                 'password' => Hash::make('12345678'),
                 'gender' => 'male',
@@ -36,6 +38,7 @@ class AdminsTableSeeder extends Seeder
             [
                 'firstname' => 'Hauwa',
                 'lastname' => 'Abdallah',
+                'username' => 'hauwie',
                 'email' => 'hauwie@gmail.com',
                 'password' => Hash::make('12345678'),
                 'gender' => 'female',

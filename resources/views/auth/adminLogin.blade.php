@@ -20,13 +20,13 @@
                 @endif
               <div class='input-field col s12'>
                 <i class="material-icons prefix">account_circle</i>
-                <input class='validate' type='text' name='email' id='email' />
-                @if ($errors->has('email'))
+                <input class='validate' type='text' name='username' id='username' />
+                @if ($errors->has('username'))
                     <span class="helper-text red-text">
-                        <strong>{{ $errors->first('email') }}</strong>
+                        <strong>{{ $errors->first('username') }}</strong>
                     </span>
                 @endif
-                <label for='email'>Enter username</label>
+                <label for='username'>Enter username</label>
               </div>
               <div class='input-field col s12'>
                 <i class="material-icons prefix">lock</i>

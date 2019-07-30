@@ -10,16 +10,16 @@
                     <h6>REGISTER NEW ADMIN</h6>
                     <div class="row">
                         <div class="input-field col s12 m4 l4">
-                            <input type="text" name="firstname" id="firstname">
+                            <input type="text" name="firstname" id="firstname" required>
                             <label for="firstname">Firstname *</label>
                         </div>
                         <div class="input-field col s12 m4 l4">
-                            <input type="text" name="lastname" id="lastname">
+                            <input type="text" name="lastname" id="lastname" required>
                             <label for="lastname">Lastname *</label>
                         </div>
                         <div class="col s12 m4 l4">
                             <label for="gender">Gender</label>
-                            <select class="browser-default" name="gender" id="gender">
+                            <select class="browser-default" name="gender" id="gender" required>
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -30,11 +30,11 @@
 
                     <div class="row">
                         <div class="input-field col s12 m4 l4">
-                            <input type="email" name="email" id="email">
-                            <label for="email">Email *</label>
+                            <input type="text" name="username" id="username">
+                            <label for="username">Username *</label>
                         </div>
                         <div class="input-field col s12 m4 l4">
-                            <input type="password" name="password" id="password">
+                            <input type="password" name="password" id="password" required>
                             <label for="password">Password *</label>
                         </div>
                         <div class="input-field col s12 m4 l4">
@@ -44,17 +44,17 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s12 m3 l3">
+                        <div class="input-field col s12 m4 l4">
+                            <input type="email" name="email" id="email" required>
+                            <label for="email">Email *</label>
+                        </div>
+                        <div class="input-field col s12 m3 l4">
                             <input type="number" name="gl" id="gl">
                             <label for="gl">Grade Level</label>
                         </div>
-                        <div class="input-field col s12 m3 l3">
+                        <div class="input-field col s12 m3 l4">
                             <input type="number" name="step" id="step">
                             <label for="step">Step</label>
-                        </div>
-                        <div class="input-field col s12 m6 l6">
-                            <input type="text" name="rank" id="rank">
-                            <label for="rank">Rank</label>
                         </div>
                     </div>
 
@@ -69,7 +69,7 @@
                         </div>
                         <div class="col s12 m4 l4">
                             <label for="role">Role *</label>
-                            <select class="browser-default" name="role" id="role">
+                            <select class="browser-default" name="role" id="role" required>
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">Admin</option>
                                 <option value="2">Gate Staff</option>
@@ -81,7 +81,7 @@
                     <div class="row">
                         <div class="col s12 m4 l4">
                             <label for="block">Block *</label>
-                            <select class="browser-default" name="block" id="block">
+                            <select class="browser-default" name="block" id="block" required>
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="hq">HQ</option>
                                 <option value="oldhq">Old HQ</option>
@@ -89,8 +89,8 @@
                             </select>
                         </div>
                         <div class="input-field col s12 m4 l4">
-                            <input type="text" name="office" id="office">
-                            <label for="office">Office</label>
+                            <input type="text" name="office" id="office" required>
+                            <label for="office">Office *</label>
                         </div>
                         <div class="input-field col s12 m4 l4">
                             <button class="btn waves-effect waves-light green darken-1 right" type="submit">Submit

@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   background: #fff;
   background-image: url("/storage/site/bgLarge.jpg");
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position-y: 60%;
@@ -298,6 +299,13 @@ body .dashboardWrap .admins .authenticated table {
   background: #fff;
 }
 
+body .dashboardWrap .admins .authenticated ul {
+  background: #fff;
+  margin: 0;
+  padding: 10px;
+  border-top: 2px solid #eee;
+}
+
 body .dashboardWrap .personnel {
   width: 100%;
   flex: 1;
@@ -353,7 +361,7 @@ body .fullWrapper {
   justify-content: center;
   align-items: flex-start;
   background: rgba(0, 0, 0, 0.6);
-  padding: 20px 0;
+  padding: 20px 0 0 0;
 }
 
 body .fullWrapper .sectionTableWrap {
@@ -361,7 +369,7 @@ body .fullWrapper .sectionTableWrap {
   background: white;
   border-radius: 4px;
   padding: 25px;
-  margin: 0 0 40px 0;
+  margin: 0 0 10px 0;
 }
 
 body .fullWrapper .sectionTableWrap .dataTables_wrapper {
@@ -735,6 +743,13 @@ body .fullWrapper .sectionTableWrap .dataTables_wrapper #users-table_paginate .d
     max-height: 1000px !important;
     background: #fff;
     height: 100% !important;
+  }
+
+  body .dashboardWrap .admins .authenticated ul {
+    background: #fff;
+    margin: 0;
+    padding: 10px;
+    border-top: 2px solid #eee;
   }
 
   body .dashboardWrap .personnel .expected {

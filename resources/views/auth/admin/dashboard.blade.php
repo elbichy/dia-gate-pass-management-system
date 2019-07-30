@@ -33,12 +33,11 @@
                     </thead>
             
                     <tbody id="requestsApproval">
-                    @foreach($data['allVisitors'] as $visitors)
-                        @foreach($visitors->visitors as $visitor)
+                    @foreach($data['allVisitors'] as $visitor)
                             @if($visitor != NULL && $visitor->status == 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
                             <tr>
-                                <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
-                                <td>{{$visitors->block}}</td>
+                                <td>{{$visitor->user->firstname.' '.$visitor->user->lastname}}</td>
+                                <td>{{$visitor->user->block}}</td>
                                 <td>{{$visitor->fullname}}</td>
                                 <td>{{$visitor->gender}}</td>
                                 <td><a href="#" data-requestid="{{$visitor->id}}" class="approveRequest btn btn-small waves-effect waves-light green">Approve</a></td>
@@ -56,7 +55,6 @@
                                 {{-- <td><a href="#modal1" class="white-text btn green waves-effect waves-light btn modal-trigger">View</a></td> --}}
                             </tr>
                             @endif
-                        @endforeach
                     @endforeach
                     </tbody>
                 </table>
@@ -71,15 +69,14 @@
                             <th>Personnel</th>
                             <th>Guest</th>
                             <th>Status</th>
-                            <th>Date/Time</th>
+                            <th>Time</th>
                         </tr>
                     </thead>
                     <tbody id="requestsApprovalHistory">
-                        @foreach($data['allVisitors'] as $visitors)
-                            @foreach($visitors->visitors as $visitor)
+                        @foreach($data['allVisitors'] as $visitor)
                                 @if($visitor->status > 0 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
                                 <tr>
-                                    <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
+                                    <td>{{$visitor->user->firstname.' '.$visitor->user->lastname}}</td>
                                     <td>{{$visitor->fullname}}</td>
                                     <td>
                                         @if($visitor->status == 1)
@@ -93,10 +90,10 @@
                                     <td>{{ \Carbon\Carbon::parse($visitor->created_at)->diffForHumans() }}</td>
                                 </tr>
                                 @endif
-                            @endforeach
                         @endforeach
                     </tbody>
                 </table>
+                {{$data['allVisitors']->links('vendor.pagination.materializecss')}}
             </div>
         </div>
     </div>
@@ -125,12 +122,11 @@
                     </thead>
             
                     <tbody id="requestsApproval">
-                    @foreach($data['allReceptionVisitors'] as $visitors)
-                        @foreach($visitors->visitors as $visitor)
+                    @foreach($data['allVisitors'] as $visitor)
                             @if($visitor != NULL && $visitor->status == 1 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
                             <tr>
-                                <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
-                                <td>{{$visitors->block}}</td>
+                                <td>{{$visitor->user->firstname.' '.$visitor->lastname}}</td>
+                                <td>{{$visitor->user->block}}</td>
                                 <td>{{$visitor->fullname}}</td>
                                 <td>{{$visitor->gender}}</td>
                                 <td><a href="#" data-requestid="{{$visitor->id}}" class="approveRequestReception btn btn-small waves-effect waves-light green">Approve</a></td>
@@ -148,7 +144,6 @@
                                 {{-- <td><a href="#modal1" class="white-text btn green waves-effect waves-light btn modal-trigger">View</a></td> --}}
                             </tr>
                             @endif
-                        @endforeach
                     @endforeach
                     </tbody>
                 </table>
@@ -166,27 +161,26 @@
                             </tr>
                         </thead>
                         <tbody id="requestsApprovalHistory">
-                    @foreach($data['allReceptionVisitors'] as $visitors)
-                        @foreach($visitors->visitors as $visitor)
-                            @if($visitor->status > 1 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
-                            <tr>
-                                <td>{{$visitors->firstname.' '.$visitors->lastname}}</td>
-                                <td>{{$visitor->fullname}}</td>
-                                <td>
-                                    @if($visitor->status == 1)
-                                        <span class="orange-text">Cleared @ Gate</span>
-                                    @elseif($visitor->status == 2)
-                                        <span class="green-text">Cleared!</span>
-                                    @elseif($visitor->status == 3)
-                                        <span class="red-text">Declined</span>
-                                    @endif
-                                </td>
-                            </tr>
-                            @endif
+                        @foreach($data['allVisitors'] as $visitor)
+                                @if($visitor->status > 1 && $visitor->created_at->format('d-m-Y') == Carbon\Carbon::now()->format('d-m-Y'))
+                                <tr>
+                                    <td>{{$visitor->user->firstname.' '.$visitor->user->lastname}}</td>
+                                    <td>{{$visitor->fullname}}</td>
+                                    <td>
+                                        @if($visitor->status == 1)
+                                            <span class="orange-text">Cleared @ Gate</span>
+                                        @elseif($visitor->status == 2)
+                                            <span class="green-text">Cleared!</span>
+                                        @elseif($visitor->status == 3)
+                                            <span class="red-text">Declined</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endif
                         @endforeach
-                    @endforeach
                         </tbody>
                     </table>
+                    {{ $data['allVisitors']->links('vendor.pagination.materializecss') }}
             </div>
         </div>
     </div>

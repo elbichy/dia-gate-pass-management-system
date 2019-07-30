@@ -10,16 +10,16 @@
                     <h6>REGISTER NEW STAFF</h6>
                     <div class="row">
                         <div class="input-field col s12 m4 l4">
-                            <input type="text" name="firstname" id="firstname">
+                            <input type="text" name="firstname" id="firstname" required>
                             <label for="firstname">Firstname *</label>
                         </div>
                         <div class="input-field col s12 m4 l4">
-                            <input type="text" name="lastname" id="lastname">
+                            <input type="text" name="lastname" id="lastname" required>
                             <label for="lastname">Lastname *</label>
                         </div>
                         <div class="col s12 m4 l4">
                             <label for="gender">Gender *</label>
-                            <select class="browser-default" name="gender" id="gender">
+                            <select class="browser-default" name="gender" id="gender" required>
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -30,15 +30,15 @@
 
                     <div class="row">
                         <div class="input-field col s12 m4 l4">
-                            <input type="text" name="username" id="username">
+                            <input type="text" name="username" id="username" required>
                             <label for="username">Username *</label>
                         </div>
                         <div class="input-field col s12 m4 l4">
-                            <input type="password" name="password" id="password">
+                            <input type="password" name="password" id="password" required>
                             <label for="password">Password *</label>
                         </div>
                         <div class="input-field col s12 m4 l4">
-                            <input type="email" name="email" id="email">
+                            <input type="email" name="email" id="email" required>
                             <label for="email">Email *</label>
                         </div>
                     </div>
@@ -60,10 +60,6 @@
 
                     <div class="row">
                         <div class="input-field col s12 m4 l4">
-                            <input type="text" name="rank" id="rank">
-                            <label for="rank">Rank</label>
-                        </div>
-                        <div class="input-field col s12 m4 l4">
                             <input type="text" name="position" id="position">
                             <label for="position">Position</label>
                         </div>
@@ -71,21 +67,21 @@
                             <input type="text" name="designation" id="designation">
                             <label for="designation">Designation</label>
                         </div>
-                    </div>
-
-                    <div class="row">
                         <div class="col s12 m4 l4">
                             <label for="block">Block *</label>
-                            <select class="browser-default" name="block" id="block">
+                            <select class="browser-default" name="block" id="block" required>
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="hq">HQ</option>
                                 <option value="oldhq">Old HQ</option>
                                 <option value="annex">Annex</option>
                             </select>
                         </div>
-                        <div class="input-field col s12 m4 l4">
-                            <input type="text" name="office" id="office">
-                            <label for="office">Office</label>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m8 l8">
+                            <input type="text" name="office" id="office" required>
+                            <label for="office">Office *</label>
                         </div>
                         <div class="input-field col s12 m4 l4">
                             <button class="btn waves-effect waves-light green darken-1 right" type="submit">Submit

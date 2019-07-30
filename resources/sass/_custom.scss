@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     background: #fff;
     background-image: url('/storage/site/bgLarge.jpg');
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position-y: 60%;
@@ -290,6 +291,12 @@ body {
                         }
                     }
                 }
+                ul {
+                    background: #fff;
+                    margin: 0;
+                    padding: 10px;
+                    border-top: 2px solid #eee;
+                }
             }
         }
         // PERSONNEL STYLING
@@ -350,13 +357,13 @@ body {
         justify-content: center;
         align-items: flex-start;
         background: rgba($color: #000, $alpha: 0.6);
-        padding: 20px 0;
+        padding: 20px 0 0 0;
         .sectionTableWrap {
             width: 90%;
             background: rgba(255, 255, 255, 1);
             border-radius: 4px;
             padding: 25px;
-            margin: 0 0 40px 0;
+            margin: 0 0 10px 0;
             // border: 4px solid red;
             .dataTables_wrapper {
                 width: 100%;
@@ -748,6 +755,12 @@ body {
                                 }
                             }
                         }
+                    }
+                    ul {
+                        background: #fff;
+                        margin: 0;
+                        padding: 10px;
+                        border-top: 2px solid #eee;
                     }
                 }
             }

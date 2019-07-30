@@ -24,11 +24,14 @@ class AdminDashboardController extends Controller
     public function index(){
 
         $data = [
-            'allVisitors' => User::with('visitors')->orderBy('id', 'DESC')->paginate(7),
-            'allReceptionVisitors' => User::where(['block' => auth()->user()->block])->with('visitors')->get()
+            'allVisitors' => Visitor::with('user')
+                            ->orderBy('created_at', 'DESC')
+                            ->paginate(7)
         ];
+       
         // dd($data['allReceptionVisitors']);
         return view('auth.admin.dashboard')->with('data', $data);
+
     }
     
     
@@ -187,15 +190,18 @@ class AdminDashboardController extends Controller
         $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
+            'username' => 'required|unique:admins',
             'email' => 'required|email|unique:admins',
             'password' => 'required',
             'role' => 'required',
-            'block' => 'required'
+            'block' => 'required',
+            'office' => 'required'
         ]);
 
         $admin = Admin::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
+            'username' => $request->username,
             'email' => $request->email,
             'gender' => $request->gender,
             'password' => Hash::make($request->password),
@@ -222,7 +228,8 @@ class AdminDashboardController extends Controller
             'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required',
-            'block' => 'required'
+            'block' => 'required',
+            'office' => 'required'
         ]);
 
         $staff = User::create([

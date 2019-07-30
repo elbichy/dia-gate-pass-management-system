@@ -6,7 +6,7 @@
             <table class="table centered table-bordered" id="users-table">
                 <thead>
                     <tr>
-                        <h5 style="margin-bottom:40px; padding:10px; border:2px solid #eee; text-align:center; width:100%;">List of guests cleared at the gate today</h5>
+                        <h5 style="margin-bottom:20px; margin-top:0.093333rem; padding:10px; border:2px solid #eee; text-align:center; width:100%;">List of guests cleared at the gate today</h5>
                     </tr>
                     <tr>
                         <th>SN</th>
@@ -43,6 +43,7 @@
                 "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 processing: true,
                 serverSide: true,
+                pageLength: 5,
                 ajax:  `{!! route('admin.getGateGuestList') !!}`,
                 columns: [
                     {

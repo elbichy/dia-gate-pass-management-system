@@ -25,17 +25,19 @@ class AdminLoginController extends Controller
         $errors = new MessageBag; // initiate MessageBag
         
         $this->validate($request, [
-            'email'   => 'required|email',
+            'username'   => 'required',
             'password' => 'required|min:6'
         ]);
 
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password],   $request->has('remember'))) {
+        if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password],   $request->has('remember'))) {
             return redirect()->intended(route('admin.dashboard'));
         }
         $errors = new MessageBag([
-            'details' => ['Email and/or password entered are incorrect.']
+            'details' => ['Username and/or password entered are incorrect.']
         ]);
         return back()->withErrors($errors, 'login')->withInput(Input::except('password'));
+
+        
     }
 
 }
