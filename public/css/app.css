@@ -13,6 +13,10 @@ body {
   background-position-y: 60%;
 }
 
+body nav .nav-wrapper {
+  background: linear-gradient(to right, #0e607e, #019BD4);
+}
+
 body nav .nav-wrapper ul a sup.notificationCount {
   width: 30px;
   height: 30px;
