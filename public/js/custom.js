@@ -199,8 +199,6 @@ function loadNotification(base_url) {
                     </a>
                 </li>
             `).prependTo("#notifications");
-
-
                 ion.sound({
                     sounds: [{
                         name: "door_bell"
@@ -213,7 +211,7 @@ function loadNotification(base_url) {
                 console.log(response.data.data);
                 window.setInterval(function() {
                     location.reload();
-                }, 4000);
+                }, 1000);
             }
             $('.notificationCount').html(response.data.newCount);
 
@@ -263,7 +261,7 @@ function loadAdminNotification(base_url) {
                 console.log(response.data.data);
                 window.setInterval(function() {
                     location.reload();
-                }, 4000);
+                }, 1000);
             }
             $('.notificationCount').html(response.data.newCount);
 

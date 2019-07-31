@@ -13,14 +13,14 @@
             <h6 class="blue darken-2 white-text">Admin staff login</h6>
 
             <div class='row'>
+              <div class='input-field col s12'>
+                <i class="material-icons prefix">account_circle</i>
+                <input type='text' name='username' id='username' value="{{ old('username') }}" required/>
                 @if ($errors->login->has('details'))
                     <span class="helper-text red-text">
                         <strong>{{ $errors->login->first('details') }}</strong>
                     </span>
                 @endif
-              <div class='input-field col s12'>
-                <i class="material-icons prefix">account_circle</i>
-                <input class='validate' type='text' name='username' id='username' />
                 @if ($errors->has('username'))
                     <span class="helper-text red-text">
                         <strong>{{ $errors->first('username') }}</strong>
@@ -30,7 +30,7 @@
               </div>
               <div class='input-field col s12'>
                 <i class="material-icons prefix">lock</i>
-                <input class='validate' type='password' name='password' id='password' />
+                <input type='password' name='password' id='password' required/>
                 @if ($errors->has('password'))
                     <span class="helper-text red-text">
                         <strong>{{ $errors->first('password') }}</strong>

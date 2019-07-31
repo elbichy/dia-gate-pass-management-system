@@ -583,6 +583,8 @@ body {
             }
         }
         main {
+            justify-content: flex-start!important;
+            padding: 20px 0 0 0!important;
             background: rgba(0, 0, 0, 0.7);
             .homeHeader {
                 font-size: 20px;

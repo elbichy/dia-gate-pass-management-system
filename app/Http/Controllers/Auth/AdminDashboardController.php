@@ -222,6 +222,7 @@ class AdminDashboardController extends Controller
     }
     // ADD NEW GENERAL STAFF
     public function addNewStaff(Request $request){
+        // dd($request->all());
         $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',

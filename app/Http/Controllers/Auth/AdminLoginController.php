@@ -11,15 +11,25 @@ use Illuminate\Support\Facades\Input;
 class AdminLoginController extends Controller
 {
 
+    // MY CONSTRUCTOR
     public function __construct()
     {
         $this->middleware('guest:admin');
     }
 
+
+
+
+
+    // SHOW ADMIN LOGIN FORM
     public function showAdminLoginForm(){
         return view('auth.adminLogin');
     }
 
+
+
+
+    // PROCESS ADMIN LOGIN
     public function adminLogin(Request $request){
 
         $errors = new MessageBag; // initiate MessageBag
@@ -33,7 +43,7 @@ class AdminLoginController extends Controller
             return redirect()->intended(route('admin.dashboard'));
         }
         $errors = new MessageBag([
-            'details' => ['Username and/or password entered are incorrect.']
+            'details' => ['These credentials do not match our records.']
         ]);
         return back()->withErrors($errors, 'login')->withInput(Input::except('password'));
 

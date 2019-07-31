@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);* {
+* {
   transition: all 200ms ease-in-out;
 }
 
@@ -569,6 +569,8 @@ body .fullWrapper .sectionTableWrap .dataTables_wrapper #users-table_paginate .d
   }
 
   body main {
+    justify-content: flex-start !important;
+    padding: 20px 0 0 0 !important;
     background: rgba(0, 0, 0, 0.7);
   }
 
