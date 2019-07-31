@@ -50,7 +50,7 @@
                     <ul id='notifications' class='dropdown-content staff-notifications' style="z-index: -100;">
                         @foreach(auth()->user()->unreadNotifications as $notificationCollection)
                             @foreach($notificationCollection->data as $notificationItem)
-                            <li class="light-blue darken-2">
+                            <li>
                                 <a href="#" class="white-text">
                                     <div class='notMsg'>
                                         <p>{{$notificationItem['msg']}}</p>

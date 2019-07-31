@@ -28,9 +28,14 @@ body nav .nav-wrapper ul a sup.notificationCount {
 }
 
 body nav .nav-wrapper ul #notifications {
+  background: #0e607e;
   width: auto !important;
   max-width: 250px;
   top: 64px !important;
+}
+
+body nav .nav-wrapper ul #notifications li {
+  background: #0e607e;
 }
 
 body nav .nav-wrapper ul #notifications li a {
@@ -197,7 +202,7 @@ body main .homMenuContainer {
 body main .homMenuContainer .item {
   width: 200px;
   height: 200px;
-  background: rgba(13, 64, 141, 0.8);
+  background: rgba(3, 125, 171, 0.74);
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -549,9 +554,14 @@ body .fullWrapper .sectionTableWrap .dataTables_wrapper #users-table_paginate .d
   }
 
   body nav .nav-wrapper ul #notifications {
+    background: #0e607e;
     width: auto !important;
     max-width: 250px;
     top: 56px !important;
+  }
+
+  body nav .nav-wrapper ul #notifications li {
+    background: #0e607e;
   }
 
   body nav .nav-wrapper ul #notifications li a {
@@ -696,7 +706,7 @@ body .fullWrapper .sectionTableWrap .dataTables_wrapper #users-table_paginate .d
   body main .homMenuContainer .item {
     width: 150px;
     height: 150px;
-    background: rgba(13, 64, 141, 0.8);
+    background: rgba(3, 125, 171, 0.74);
     border-radius: 20px;
     display: flex;
     justify-content: center;

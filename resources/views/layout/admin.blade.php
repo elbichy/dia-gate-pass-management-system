@@ -65,7 +65,7 @@
                     <ul id='notifications' class='dropdown-content admin-notifications'>
                         @foreach(auth()->user()->unreadNotifications as $notificationCollection)
                             @foreach($notificationCollection->data as $notificationItem)
-                            <li class="light-blue darken-2">
+                            <li>
                                 <a href="#" class="white-text">
                                     <div class='notMsg'>
                                         <p>{{$notificationItem['msg']}}</p>
@@ -81,12 +81,6 @@
                         @endforeach
                     </ul>
                 </ul>
-                {{-- <ul> 
-                    <a  href="#" style="margin-left: 14px;" data-target='notifications'  class="dropdown-trigger left hide-on-med-and-up">
-                        <i style="margin-right: 0px;" class="material-icons left">notifications</i>
-                        {!! auth()->user()->unreadNotifications->count() > 0 ? '<sup class="red notificationCount">'.auth()->user()->unreadNotifications->count().'</sup>' : '<sup class="red green notificationCount">0</sup>' !!}
-                    </a>
-                </ul>  --}}
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">

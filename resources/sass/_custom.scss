@@ -27,10 +27,12 @@ body {
                     }
                 }
                 #notifications {
+                    background: #0e607e;
                     width: auto!important;
                     max-width: 250px;
                     top: 64px!important;
                     li {
+                        background: #0e607e;
                         a {
                             color: var(--primary-bg-dark);
                             display: flex;
@@ -186,7 +188,7 @@ body {
             .item {
                 width: 200px;
                 height: 200px;
-                background: rgba(13, 64, 141, 0.8);
+                background: rgba(3, 125, 171, 0.74);
                 border-radius: 20px;
                 display: flex;
                 justify-content: center;
@@ -556,10 +558,12 @@ body {
                         }
                     }
                     #notifications {
+                        background: #0e607e;
                         width: auto!important;
                         max-width: 250px;
                         top: 56px!important;
                         li {
+                            background: #0e607e;
                             a {
                                 color: var(--primary-bg-dark);
                                 display: flex;
@@ -692,7 +696,7 @@ body {
                 .item {
                     width: 150px;
                     height: 150px;
-                    background: rgba(13, 64, 141, 0.8);
+                    background: rgba(3, 125, 171, 0.74);
                     border-radius: 20px;
                     display: flex;
                     justify-content: center;
