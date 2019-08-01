@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Input;
 
-class AdminController extends Controller
+class AdminLoginController extends Controller
 {
 
     // MY CONSTRUCTOR
@@ -22,8 +22,8 @@ class AdminController extends Controller
 
 
     // SHOW ADMIN  FORM
-    public function showAdminForm(){
-        return view('auth.admin');
+    public function showAdminLoginForm(){
+        return view('auth.adminLogin');
     }
 
 
@@ -45,7 +45,7 @@ class AdminController extends Controller
         $errors = new MessageBag([
             'details' => ['These credentials do not match our records.']
         ]);
-        return back()->withErrors($errors, '')->withInput(Input::except('password'));
+        return back()->withErrors($errors, 'login')->withInput(Input::except('password'));
 
         
     }
