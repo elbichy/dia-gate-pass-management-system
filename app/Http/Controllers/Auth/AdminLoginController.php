@@ -30,7 +30,7 @@ class AdminLoginController extends Controller
 
 
     // PROCESS ADMIN 
-    public function admin(Request $request){
+    public function adminLogin(Request $request){
 
         $errors = new MessageBag; // initiate MessageBag
         
